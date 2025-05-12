@@ -36,3 +36,6 @@ body :not(pre) > code[class*="language-"],
 body pre[class*="language-"] {
   @apply bg-gray-800;
 }
+
+@import "./gradient-hero.css";
+

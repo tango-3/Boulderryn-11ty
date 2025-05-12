@@ -17,14 +17,13 @@
     {% endif %}
   </head>
   <body>
-    {% include "./partials/navbar.html" %}
 
     {{ content | safe }}
 
     {% include "./partials/footer.html" %}
 
-    <script src="/static/js/alpine.js"></script>
-
+    <!-- <script src="/static/js/alpine.js"></script> -->
+    <script src="/static/js/particles.js" defer></script>
     {% if path == "home" %}
       <!-- Netlify Identity Widget -->
       <!-- Needed only if you are using Netlify Identity feature -->

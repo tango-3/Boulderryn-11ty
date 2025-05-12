@@ -1,22 +1,16 @@
 ---
 layout: default
-title: Neat Starter
+title: Modern Gradient Demo
 path: home
 ---
 
-<div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
-  <h1>
-    Welcome to
-    <strong class="bg-clip-text text-transparent bg-linear-to-r from-blue-500 to-purple-500">
-      {{title}}
-    </strong>
-  </h1>
+{% include "partials/hero-gradient.njk" %}
+<div class="gradient-background">
+  <div class="glow"></div>
+  <div class="noise-overlay"></div>
+  <div class="particles-container" id="particles-container"></div>
+</div>
 
-  <p>
-    <abbr title="netlify cms, eleventy, alpine js & tailwind css">NEAT</abbr>
-    Starter Template. Get Started by editing.
-    <code class="bg-gray-100 text-blue-800 p-1">/index.njk</code>
-  </p>
-
-  {% include "./_includes/partials/content.html" %}
+<div class="content-container">
+  <h1>Bolder-ryn</h1>
 </div>
