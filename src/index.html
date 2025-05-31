@@ -1,22 +1,66 @@
 ---
 layout: default
-title: Neat Starter
+title: Bolderryn
 path: home
 ---
 
-<div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
-  <h1>
-    Welcome to
-    <strong class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-      {{title}}
-    </strong>
-  </h1>
+<div class="">
+  <img src="static/img/hands-in-chalk.png" alt="" class="absolute inset-0 -z-10 w-full h-full object-cover object-center">
+</div>
 
-  <p>
-    <abbr title="netlify cms, eleventy, alpine js & tailwind css">NEAT</abbr>
-    Starter Template. Get Started by editing.
-    <code class="bg-gray-100 text-blue-800 p-1">/index.njk</code>
-  </p>
+<!-- <div class="min-h-screen max-w-7xl w-full flex flex-col justify-between">
+  <div class="flex flex-row justify-between w-full">
+    <div class="h-16 w-24 bg-amber-200"></div>
+    <div class="h-16 w-24 bg-amber-500"></div>
+  </div>
 
-  {% include "./_includes/partials/content.html" %}
+  <div class="flex flex-row justify-between w-full ">
+    <div class="h-16 w-24 bg-green-200"></div>
+    <div class="h-16 w-24 bg-green-500"></div>
+  </div>
+
+</div> -->
+
+
+<div class="min-h-screen overflow-y-auto overscroll-x-none">
+<div class="particles-container" id="particles-container"></div>
+
+<section class="min-h-screen w-full max-w-7xl text-white px-4 py-8 flex flex-col font-flama font-bold overflow-y-auto overflow-x-hidden relative">  <!-- Top block -->
+  <div class="flex flex-col md:grid md:grid-cols-2 md:items-stretch gap-8 flex-1">
+    <!-- Left content -->
+    <div class="md:w-full flex flex-col justify-between h-full space-y-6">
+      <div>
+        <img src="static/img/bolderryn-logo.svg" alt="BoulderRYN logo" class="w-96">
+      </div>
+
+
+      <!-- Email signup -->
+      <div class="space-y-2 font-bold mt-36">
+        <label for="email" class="uppercase text-3xl block">Stay in the loop</label>
+        <div class="flex gap-2 w-xl">
+          <input type="email" id="email" placeholder="Email" class="text-white uppercase bg-transparent border-4 border-white p-3 flex-1">
+          <button class="bg-white text-black px-5 py-3 uppercase font-medium">I'm in</button>
+        </div>
+        <div class="flex items-center gap-2 text-xl mt-3">
+          <img src="static/img/insta-icon.svg" alt="Instagram" class="w-12 h-12">
+          <span class="leading-tight">@boulderryn. Follow and watch the <br>centre come alive, hold by hold.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right content -->
+    <div class="md:w-full flex flex-col justify-between h-full space-y-6 text-right font-bold ">
+      <h2 class="text-6xl uppercase">Penryn & Falmouth's only<br>indoor bouldering space.<br>Drops this August.</h2>
+      <div class="mt-36">
+        <p class="text-5xl uppercase hidden sm:block">Chalk up &<br>see you on the wall</p>
+        <p class="text-2xl uppercase text-white mt-2">Five minutes from Exeter University Penryn Campus.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom slogan -->
+  <div class="mt-12 text-center text-base md:text-5xl uppercase tracking-wide">
+    Inspiring boulders, inspiring climbing, inspiring community.
+  </div>
+</section>
 </div>

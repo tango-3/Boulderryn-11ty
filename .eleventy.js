@@ -1,7 +1,7 @@
 const yaml = require("js-yaml");
 const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const htmlmin = require("html-minifier");
+const htmlmin = require("html-minifier-terser");
 
 module.exports = function (eleventyConfig) {
   // Disable automatic use of your .gitignore
@@ -34,7 +34,12 @@ module.exports = function (eleventyConfig) {
 
   // Copy Image Folder to /_site
   eleventyConfig.addPassthroughCopy("./src/static/img");
-
+  // Copy JS Folder to /_site
+  eleventyConfig.addPassthroughCopy("./src/static/js");
+  // Copy Fonts Folder to /_site
+  eleventyConfig.addPassthroughCopy("./src/static/fonts");
+  // Copy Styles Folder to /_site
+  eleventyConfig.addPassthroughCopy("./src/static/css");
   // Copy favicon to route of /_site
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
 

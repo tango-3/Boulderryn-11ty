@@ -1,10 +1,13 @@
 module.exports = {
-  content: ["./**/*.html"],
+  content: ["src/./**/*.html"],
   theme: {
     container: {
       center: true,
     },
     extend: {
+      fontFamily: {
+        flama: ['"Flama Condensed"', 'sans-serif'],
+      },
       colors: {},
     },
   },

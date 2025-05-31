@@ -12,18 +12,17 @@
     {% endif %}
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-    {% if prism == true %}
-      <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
-    {% endif %}
+    <link rel="stylesheet" href="/static/css/gradient-hero.css">
   </head>
   <body>
-    {% include "./partials/navbar.html" %}
 
     {{ content | safe }}
 
-    {% include "./partials/footer.html" %}
+
 
     <script src="/static/js/alpine.js"></script>
+    <!-- dust effect -->
+    <script src="/static/js/particles.js" defer></script>
 
     {% if path == "home" %}
       <!-- Netlify Identity Widget -->
