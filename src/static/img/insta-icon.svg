@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="142" height="141" viewBox="0 0 142 141">
+  <defs>
+    <clipPath id="clip-insta-icon">
+      <rect width="142" height="141"/>
+    </clipPath>
+  </defs>
+  <g id="insta-icon" clip-path="url(#clip-insta-icon)">
+    <g id="instagram-svgrepo-com" transform="translate(-5 -5)">
+      <path id="Path_25" data-name="Path 25" d="M103.637,5H46.856A41.888,41.888,0,0,0,5,46.856v56.781A41.888,41.888,0,0,0,46.856,145.5h56.781a41.9,41.9,0,0,0,41.856-41.863V46.856A41.875,41.875,0,0,0,103.637,5Zm27.73,98.637a27.735,27.735,0,0,1-27.723,27.73H46.856a27.723,27.723,0,0,1-27.723-27.73V46.856a27.718,27.718,0,0,1,27.73-27.723h56.775A27.728,27.728,0,0,1,131.361,46.85Z" transform="translate(0 0)" fill="#fff"/>
+      <path id="Path_26" data-name="Path 26" d="M46.638,17.427A36.326,36.326,0,1,0,82.963,53.753,36.358,36.358,0,0,0,46.638,17.427Zm0,58.518A22.193,22.193,0,1,1,68.829,53.753,22.193,22.193,0,0,1,46.638,75.946ZM83.04,8.991A8.7,8.7,0,1,1,74.329,17.7,8.331,8.331,0,0,1,83.04,8.991Z" transform="translate(28.612 21.497)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
