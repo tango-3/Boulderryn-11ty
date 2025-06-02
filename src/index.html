@@ -54,10 +54,10 @@ path: home
         <label for="email" class="uppercase text-3xl block text-left">Stay in the loop</label>
         
         <form
-          action="https://buttondown.com/api/emails/embed-subscribe/tango3"
+          action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondown.username }}"
           method="post"
           target="popupwindow"
-          onsubmit="window.open('https://buttondown.com/tango3', 'popupwindow')"
+          onsubmit="window.open('https://buttondown.com/{{ site.buttondown.username }}', 'popupwindow')"
           class="flex gap-2"
         >
           <input
@@ -74,7 +74,7 @@ path: home
             I'm in
           </button>
         </form>
-        <a href="{ site.instagram }">
+        <a href="{{ site.instagram }}">
           <div class="flex items-center gap-2 text-xl mt-3 text-left ">
             <img src="static/img/insta-icon.svg" alt="Instagram" class="w-12 h-12">
             <span class="leading-tight uppercase font-medium">@boulderryn. Follow and watch the <br>centre come alive, hold by hold.</span>
