@@ -2,21 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      {{title}}
-    </title>
-    {% if description %}
-      <meta name="description" content="{{description}}"/>
-    {% endif %}
-    {% block head %}{% endblock %}
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-    <link rel="stylesheet" href="/static/css/gradient-hero.css">
+
+    <title>{{ title or "Boulderryn - Indoor Bouldering in Penryn & Falmouth" }}</title>
+    <meta name="description" content="{{ Penryn and Falmouth's only indoor bouldering space. Opening August. Climb indoors to climb outdoors. }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://boulderryn.co.uk{{ page.url | url }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boulderryn.co.uk{{ page.url | url }}">
+    <meta property="og:title" content="{{ Boulderryn - Indoor Bouldering in Penryn & Falmouth }}">
+    <meta property="og:description" content="{{ Opening August. Five minutes from the Exeter University Penryn Campus. Inspiring boulders, inspiring climbing, inspiring community. }}">
+    <meta property="og:image" content="https://boulderryn.co.uk/img/hands-in-chalk.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ Boulderryn - Indoor Bouldering in Penryn & Falmouth }}">
+    <meta name="twitter:description" content="{{ Penryn and Falmouth's only indoor bouldering space. Chalk up & see you on the wall. }}">
+    <meta name="twitter:image" content="https://boulderryn.co.uk/img/hands-in-chalk.png">
+
+    <!-- Favicon & Manifest -->
     <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
     <link rel="manifest" href="/static/img/site.webmanifest">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ffffff">
+
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/gradient-hero.css">
   </head>
   <body>
 
