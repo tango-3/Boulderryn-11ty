@@ -1,3 +1,10 @@
 [build]
   publish = "_site"
   command = "npm run build"
+
+[[plugins]]
+package = "netlify-plugin-cloudinary"
+
+  [plugins.inputs]
+  cloudName  = "tango3"
+  imagesPath = "/static/img"
