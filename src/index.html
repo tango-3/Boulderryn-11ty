@@ -5,6 +5,24 @@ path: home
 menu:
   title: Home
   order: 1
+
+intro:
+  lead: >
+    Welcome to **Boulderryn**, Falmouth and Penryn's only indoor bouldering space.
+    Whether you're just starting out or already chasing your next send, this is your spot.
+  body: |
+    No ropes, no pressure. Just a friendly team and ever-changing routes.
+    Come solo, bring your mates, or get stuck in at one of our intro sessions.
+    Everyone's welcome. Chalk up and let's go.
+
+    **Just Five minutes from Exeter University Penryn Campus.**
+  buttons:
+    - text: Climbing
+      url: /climbing/
+      style: primary
+    - text: find/Contact us
+      url: /membership/
+      style: secondary
 ---
 {% include "partials/navbar.html" %}
 
@@ -15,7 +33,7 @@ menu:
 <div class="particles-container " id="particles-container"></div>
 
 {% include "partials/home-hero.html" %}
-
+{% include "partials/home-intro.html" %}
 
 <section class="min-h-screen w-full max-w-7xl text-white px-4 py-8 flex flex-col font-flama font-bold overflow-y-auto overflow-x-hidden relative z-10">  <!-- Top block -->
   <div class="flex flex-col  md:items-stretch gap-8 flex-1">

@@ -1,0 +1,48 @@
+<div class="overflow-hidden bg-black py-24 sm:py-32">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <section class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+      <div class="mb-10 text-white lg:pr-8 font-noto prose prose-invert">
+        {# Intro lead (WYSIWYG/Markdown) #}
+        <div class="text-xl/8 font-light">
+          {% if intro and intro.lead %}
+            {{ intro.lead | markdown | safe }}
+          {% endif %}
+        </div>
+
+        {# Intro body (WYSIWYG/Markdown) #}
+        <div class="mt-8 text-base/7">
+          {% if intro and intro.body %}
+            {{ intro.body | markdown | safe }}
+          {% endif %}
+        </div>
+
+      </div>
+      <div class="lg:row-span-2 lg:-mr-16 xl:mr-auto">
+        <div class=" sm:-mx-16 lg:mx-0">
+          <div class="">
+                <h2 class="sr-only">Chalk up and see you on the wall</h2>
+                <img
+                src="/static/svg/chalk-up.svg"
+                alt=""
+                class="w-full"
+                aria-hidden="true"
+                />
+          </div>
+          <div class="pt-8 lg:row-span-2 lg:-mr-16 xl:mr-auto flex justify-end gap-8">
+            {% if intro and intro.buttons and intro.buttons | length > 0 %}
+              {% for btn in intro.buttons %}
+                {% if loop.index0 < 2 %}
+                  {% set style = 'btn-primary' %}
+                  {% if btn.style and (btn.style | lower) == 'secondary' %}
+                    {% set style = 'btn-secondary' %}
+                  {% endif %}
+                  <a href="{{ btn.url | url }}" class="btn {{ style }}">{{ btn.text }}</a>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

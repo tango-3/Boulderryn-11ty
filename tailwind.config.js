@@ -1,5 +1,7 @@
 module.exports = {
-  content: ["src/./**/*.html"],
+  content: [
+    "./src/**/*.{html,njk,md}",
+  ],
   theme: {
     container: {
       center: true,
@@ -7,10 +9,21 @@ module.exports = {
     extend: {
       fontFamily: {
         flama: ['"Flama Condensed"', 'sans-serif'],
+        noto: ['"Noto Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
-      colors: {},
+      colors: {
+        primary: '#FF3B6A',
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            // Use Noto Sans inside prose blocks
+            fontFamily: theme('fontFamily.noto').join(', '),
+            a: { color: theme('colors.primary') },
+          },
+        },
+      }),
     },
   },
-  variants: {},
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')],
 };

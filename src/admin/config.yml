@@ -43,6 +43,34 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false, hint: "Used only when External link is true" }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+          - label: "Introduction"
+            name: "intro"
+            widget: "object"
+            fields:
+              - label: "Lead"
+                name: "lead"
+                widget: "markdown"
+                minimal: true
+                hint: "Short opener. Supports Markdown."
+              - label: "Body"
+                name: "body"
+                widget: "markdown"
+                hint: "Main intro text. Supports Markdown."
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                max: 2
+                summary: "{{fields.text}} ({{fields.style}} → {{fields.url}})"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - label: "Style"
+                    name: "style"
+                    widget: "select"
+                    options:
+                      - { label: "Primary", value: "primary" }
+                      - { label: "Secondary", value: "secondary" }
+                    default: "primary"
       - label: "About"
         name: "about"
         file: "src/about.html"

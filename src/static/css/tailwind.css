@@ -43,6 +43,18 @@
   font-display: swap;
 }
 
+/* Button classes */
+@layer components {
+  .btn {
+    @apply transition-colors duration-200 px-10 py-3 text-lg uppercase font-flama tracking-wider focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+  .btn-primary {
+    @apply bg-primary text-black hover:text-white hover:bg-pink-700 focus-visible:outline-primary;
+  }
+  .btn-secondary {
+    @apply border-2 border-white text-white hover:text-black hover:bg-white focus-visible:outline-primary;
+  }
+}
 
 h1 {
   @apply text-4xl tracking-tighter mb-3 text-center lg:text-7xl;
@@ -52,7 +64,7 @@ h3 {
   @apply text-2xl font-bold mb-3;
 }
 
-/* Syntax Highlighting*/
+/* Syntax Highlighting */
 
 body :not(pre) > code[class*="language-"],
 body pre[class*="language-"] {
