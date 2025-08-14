@@ -12,41 +12,190 @@ public_folder: "/static/img"
 local_backend: true
 # publish_mode: editorial_workflow
 collections:
+  # --- Pages managed at the root ---
+  - label: "Pages"
+    name: "pages"
+    editor:
+      preview: false
+    files:
+      - label: "Home"
+        name: "home"
+        file: "src/index.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false, hint: "Lower numbers appear first" }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false, hint: "Used only when External link is true" }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+      - label: "About"
+        name: "about"
+        file: "src/about.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+      - label: "Climbing"
+        name: "climbing"
+        file: "src/climbing.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+      - label: "Membership"
+        name: "membership"
+        file: "src/membership.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+      - label: "Contact"
+        name: "contact"
+        file: "src/contact.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+      - label: "FAQ"
+        name: "faq"
+        file: "src/faq.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+
+  # --- Blog posts ---
   - label: "Blog"
     name: "blog"
     folder: "src/posts"
     create: true
     editor:
       preview: false
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - widget: select
-        label: "tags"
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+      - label: "Tags"
         name: "tags"
-        multiple: true
-        create: true
-        options: ["Tags", "created", "from", "config.yml"]
+        widget: "list"
+        default: ["post"]
+        allow_add: true
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # --- Site settings (kept as-is) ---
   - label: "Settings"
     name: "settings"
     editor:
       preview: false
     files:
-      - label: "Navigation"
-        name: "items"
-        file: "src/_data/navigation.yaml"
-        fields:
-          - label: Nav Items
-            name: items
-            widget: list
-            allow_add: false
-            collapsed: false
-            fields:
-              - { label: Title, name: text, widget: string }
-              - { label: URL, name: url, widget: string }
       - label: "Quick Links"
         name: "links"
         file: "src/_data/quicklinks.yaml"
@@ -60,7 +209,7 @@ collections:
               - { label: URL, name: url, widget: string }
               - { label: Description, name: desc, widget: string }
       - label: "Meta Settings"
-        name: "settings"
+        name: "site_settings"
         file: "src/_data/settings.yaml"
         fields:
           - { label: Name, name: name, widget: string }

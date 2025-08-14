@@ -1,33 +1,101 @@
-<div class="{{ 'lg:fixed' if path == 'home' }} w-full">
-    <nav class="flex items-center justify-center lg:justify-between flex-wrap p-6 lg:px-0 container mx-auto" x-data="{ isOpen: false }" @keydown.escape="isOpen = false"  @click.away="isOpen = false">
-        <!--Logo etc-->
-        <div class="flex items-center">
-            <a href="/" class="text-indigo-500 font-bold text-lg">
-                Logo</a>
-        </div>
+<header class="absolute inset-x-0 top-0 z-50">
+  <!-- mobile climb indoors logo -->
+  <div class="absolute top-5 left-5 sm:hidden">
+    <a href="/">
+      <span class="sr-only">Boulderryn</span>
+      <img src="static/svg/boulderryn-outline-logo.svg" alt="Boulderryn - Penryn and Falmouth's only Indoor Bouldering Space" class="h-44" />
+    </a>
+  </div>
+  <!-- mobile climb indoors logo ENDS -->
 
-        <!--Toggle button (hidden on large screens)-->
-        <button @click="isOpen = !isOpen" type="button" class="ml-auto block lg:hidden px-2 text-primary-500 hover:text-primary-500 focus:outline-none focus:text-primary-500" :class="{ 'transition transform-180': isOpen }" aria-label="Menu">
-            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-                <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
-                <path x-show="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
-            </svg>
-        </button>
+  <!-- Top bar with hamburger -->
+  <nav aria-label="Primary" class="flex items-center justify-end md:p-6 lg:px-8">
+    <div class="flex bg-pink-600">
+      <button type="button" command="show-modal" commandfor="mobile-menu" class="inline-flex items-center justify-center rounded-md p-6 text-black hover:text-white focus:outline-none focus-visible:ring" aria-haspopup="dialog" aria-controls="mobile-menu">
+        <span class="sr-only">Open main menu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" data-slot="icon" aria-hidden="true" class="size-10">
+          <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </nav>
 
-        <!--Menu-->
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto text-center " :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" x-show.transition="true">
+  <!-- Slide-out navigation -->
+  <el-dialog>
+    <dialog id="mobile-menu" class="backdrop:bg-transparent" aria-label="Site navigation">
+      <div tabindex="0" class="fixed inset-0 focus:outline-none">
+        <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black p-6 sm:ring-1 sm:ring-gray-100/10">
+          <div class="mx-auto flex h-full flex-col justify-center gap-8 md:max-w-md md:flex-row">
+            <div class="absolute top-0 right-0 sm:top-10 sm:right-10">
+              <button type="button" command="close" commandfor="mobile-menu" class="bg-white p-4 text-black transition-colors duration-300 ease-in-out hover:bg-pink-600 hover:text-white focus:outline-none focus-visible:ring" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" data-slot="icon" aria-hidden="true" class="size-10">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
 
-            {% if navigation.items %}
+            <!-- mobile logo (inside panel) -->
+            <a href="/" class="absolute top-10 left-10">
+              <span class="sr-only">Boulderryn</span>
+              <img src="static/svg/boulderryn-outline-logo.svg" alt="" class="h-24" />
+            </a>
+            <!-- mobile logo ENDS -->
 
-                <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
-                    {% for item in navigation.items %}
-                        <li class="nav__item mr-3">
-                            <a @click="isOpen = false" class="text-ml inline-block text-gray-500 no-underline hover:text-indigo-500 py-2 px-4" href="{{ item.url }}">{{ item.text }}</a>
-                        </li>
+            <div class="hidden flex-col items-center justify-center gap-6 sm:flex">
+              <p class="text-right text-5xl text-white uppercase">
+                <span class="block">Choose</span>
+                <span class="block">you</span>
+                <span class="block">Route</span>
+              </p>
+              <a href="/" class="self-end p-1.5">
+                <span class="sr-only">Boulderryn</span>
+                <img src="static/svg/boulderryn-outline-logo.svg" alt="" class="h-32" />
+              </a>
+            </div>
+
+            <div class="flow-root w-4/5 self-center sm:mt-6 sm:w-auto">
+              <div class="-my-6 divide-y divide-gray-100/25 border-l border-pink-600 pl-10">
+                <!-- Primary nav items -->
+                <nav aria-label="Primary" class="py-6">
+                  <ul role="list" class="space-y-2">
+                    {% for item in collections.primaryNav %}
+                      {% set isActive = item.url | isCurrentUrl(page.url) %}
+                      <li>
+                        <a href="{{ item.url }}"
+                           {% if item.external %}target="_blank" rel="noopener"{% endif %}
+                           {% if isActive %}aria-current="page"{% endif %}
+                           class="-mx-3 block px-3 py-2 text-4xl/10 uppercase transition-colors duration-300 ease-in-out  focus:outline-none focus-visible:ring {% if isActive %}font-bold text-pink-600{% else %}hover:bg-pink-600 font-light text-white{% endif %}">
+                          {{ item.title }}
+                        </a>
+                      </li>
                     {% endfor %}
-                </ul>
+                  </ul>
+                </nav>
 
-            {% endif %}
-        </div>
-    </nav>
-</div>
+                <!-- Secondary nav items -->
+                {% if collections.secondaryNav and collections.secondaryNav | length %}
+                <nav aria-label="Secondary" class="py-6">
+                  <ul role="list" class="space-y-1">
+                    {% for item in collections.secondaryNav %}
+                      {% set isActive = item.url | isCurrentUrl(page.url) %}
+                      <li>
+                        <a href="{{ item.url }}"
+                           {% if item.external %}target="_blank" rel="noopener"{% endif %}
+                           {% if isActive %}aria-current="page"{% endif %}
+                           class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold uppercase hover:bg-white/5 focus:outline-none focus-visible:ring {% if isActive %}text-pink-600{% else %}text-white{% endif %}">
+                          {{ item.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </nav>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </el-dialog-panel>
+      </div>
+    </dialog>
+  </el-dialog>
+  <!-- Slide nav ENDS -->
+</header>
