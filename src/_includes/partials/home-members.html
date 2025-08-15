@@ -1,0 +1,51 @@
+<div class="overflow-hidden bg-black py-12 sm:py-22">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <section class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+      <div class="mb-10 text-white lg:pr-8 font-noto prose prose-invert -mt-8">
+        <div class="">
+            <h2 class="sr-only">Climb. Breath. Belong.</h2>
+            <img
+            src="/static/svg/climb-breath-belong.svg"
+            alt=""
+            class="w-full"
+            aria-hidden="true"
+            />
+        </div>
+        {# Membership lead (WYSIWYG/Markdown) #}
+        <div class="text-xl/8 font-extralight">
+          {% if membership and membership.lead %}
+            {{ membership.lead | markdown | safe }}
+          {% endif %}
+        </div>
+
+        {# Intro body (WYSIWYG/Markdown) #}
+        <div class="mt-8 text-base/7">
+          {% if membership and membership.body %}
+            {{ membership.body | markdown | safe }}
+          {% endif %}
+        </div>
+        <div class="pt-4 lg:mr-4 xl:mr-auto flex flex-row justify-start gap-8">
+        {% if membership and membership.buttons and membership.buttons | length > 0 %}
+            {% for btn in membership.buttons %}
+            {% if loop.index0 < 2 %}
+                {% set style = 'btn-primary' %}
+                {% if btn.style and (btn.style | lower) == 'secondary' %}
+                {% set style = 'btn-secondary' %}
+                {% endif %}
+                <a href="{{ btn.url | url }}" class="btn {{ style }}">{{ btn.text }}</a>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        </div>
+      </div>
+      <div class="lg:row-span-2 lg:-mr-8 xl:mr-auto">
+        <div class=" sm:-mx-8 lg:mx-0">
+
+          <div class="pt-8 lg:mr-4 xl:mr-auto flex flex-row justify-end gap-8">
+            <!-- video -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

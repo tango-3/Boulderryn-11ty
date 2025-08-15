@@ -23,6 +23,19 @@ intro:
     - text: find/Contact us
       url: /membership/
       style: secondary
+
+membership:
+  lead: >
+    Whether you're here for the movement, the community, or just to to unwind, we've got you.
+  body: |
+    Sort your waiver, check out membership options, and we'll see you on the wall.
+  buttons:
+    - text: Memberships
+      url: /memberships/
+      style: primary
+    - text: Waivers
+      url: /waivers/
+      style: secondary
 ---
 {% include "partials/navbar.html" %}
 
@@ -34,6 +47,7 @@ intro:
 
 {% include "partials/home-hero.html" %}
 {% include "partials/home-intro.html" %}
+{% include "partials/home-members.html" %}
 
 <section class="min-h-screen w-full max-w-7xl text-white px-4 py-8 flex flex-col font-flama font-bold overflow-y-auto overflow-x-hidden relative z-10">  <!-- Top block -->
   <div class="flex flex-col  md:items-stretch gap-8 flex-1">

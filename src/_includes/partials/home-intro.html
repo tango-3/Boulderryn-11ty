@@ -1,9 +1,9 @@
-<div class="overflow-hidden bg-black py-24 sm:py-32">
+<div class="overflow-hidden bg-black py-12 sm:py-22">
   <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
     <section class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
-      <div class="mb-10 text-white lg:pr-8 font-noto prose prose-invert">
+      <div class="mb-10 text-white lg:pr-8 font-noto prose prose-invert -mt-8">
         {# Intro lead (WYSIWYG/Markdown) #}
-        <div class="text-xl/8 font-light">
+        <div class="text-xl/8 font-extralight">
           {% if intro and intro.lead %}
             {{ intro.lead | markdown | safe }}
           {% endif %}
@@ -17,8 +17,8 @@
         </div>
 
       </div>
-      <div class="lg:row-span-2 lg:-mr-16 xl:mr-auto">
-        <div class=" sm:-mx-16 lg:mx-0">
+      <div class="lg:row-span-2 lg:-mr-8 xl:mr-auto">
+        <div class=" sm:-mx-8 lg:mx-0">
           <div class="">
                 <h2 class="sr-only">Chalk up and see you on the wall</h2>
                 <img
@@ -28,7 +28,7 @@
                 aria-hidden="true"
                 />
           </div>
-          <div class="pt-8 lg:row-span-2 lg:-mr-16 xl:mr-auto flex justify-end gap-8">
+          <div class="pt-8 lg:mr-4 xl:mr-auto flex flex-row justify-end gap-8">
             {% if intro and intro.buttons and intro.buttons | length > 0 %}
               {% for btn in intro.buttons %}
                 {% if loop.index0 < 2 %}
