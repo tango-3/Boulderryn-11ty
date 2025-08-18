@@ -1,6 +1,6 @@
 <div class="overflow-hidden bg-black py-12 sm:py-22">
   <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-    <section class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+    <section class="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
       <div class="mb-10 text-white lg:pr-8 font-noto prose prose-invert -mt-8">
         <div class="">
             <h2 class="sr-only">Climb. Breath. Belong.</h2>
@@ -38,11 +38,50 @@
         {% endif %}
         </div>
       </div>
-      <div class="lg:row-span-2 lg:-mr-8 xl:mr-auto">
-        <div class=" sm:-mx-8 lg:mx-0">
+      <div class="lg:row-span-2 lg:-mr-8 xl:mr-auto w-full">
+        <div class=" sm:-mx-8 lg:mx-0 h-full">
+          <div class=" lg:mr-4 xl:mr-auto flex flex-row justify-end gap-8 h-full">
+            <div class="w-full">
+              {% if membership and membership.video %}
+                {% set embed = membership.video.external_url | embedUrl %}
 
-          <div class="pt-8 lg:mr-4 xl:mr-auto flex flex-row justify-end gap-8">
-            <!-- video -->
+                {% if embed %}
+                  {# External (YouTube/Vimeo) #}
+                  <div class="relative w-full overflow-hidden rounded-xl shadow-lg">
+                    <div class="pb-[56.25%]"></div>
+                    <iframe
+                      class="absolute inset-0 block w-full h-full"
+                      src="{{ embed }}"
+                      title="Membership video"
+                      loading="lazy"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allow="autoplay; encrypted-media; picture-in-picture;"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                {% elif membership.video.mp4 %}
+                  {# local MP4 — full-height, center-cropped, Tailwind-only #}
+                  <div class="relative w-full h-full overflow-hidden ">
+                    <video
+                      class="absolute inset-0 w-full h-full object-cover object-center"
+                      {% if membership.video.poster %}poster="{{ membership.video.poster | url }}"{% endif %}
+                      preload="metadata"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                    >
+                      <source src="{{ membership.video.mp4 | url }}" type="video/mp4">
+                      {% if membership.video.transcript %}{{ membership.video.transcript }}{% else %}Your browser does not support the video tag.{% endif %}
+                    </video>
+                  </div>
+                {% endif %}
+
+                {% if membership.video.transcript %}
+                  <p class="sr-only">{{ membership.video.transcript }}</p>
+                {% endif %}
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>

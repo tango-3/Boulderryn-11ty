@@ -70,3 +70,5 @@ body :not(pre) > code[class*="language-"],
 body pre[class*="language-"] {
   @apply bg-gray-800;
 }
+
+.prose iframe, iframe { height: auto; min-height: 0; }

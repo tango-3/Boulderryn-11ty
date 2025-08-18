@@ -1,7 +1,10 @@
 backend:
   # Use netlify identity as backend
   name: git-gateway
-  branch: master
+  repo: tango-3/Boulderryn-11ty
+  # branch: master
+  branch: phase-1
+
   ### enable below lines for github integration ###
   # name: github
   # repo: surjithctly/neat-starter
@@ -71,6 +74,45 @@ collections:
                       - { label: "Primary", value: "primary" }
                       - { label: "Secondary", value: "secondary" }
                     default: "primary"
+          - label: "Membership"
+            name: "membership"
+            widget: "object"
+            collapsed: false
+            fields:
+              - label: "Lead"
+                name: "lead"
+                widget: "markdown"
+                minimal: true
+                hint: "Short opener. Supports Markdown."
+              - label: "Body"
+                name: "body"
+                widget: "markdown"
+                hint: "Main text. Supports Markdown."
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                max: 2
+                summary: "{{fields.text}} ({{fields.style}} → {{fields.url}})"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - label: "Style"
+                    name: "style"
+                    widget: "select"
+                    options:
+                      - { label: "Primary", value: "primary" }
+                      - { label: "Secondary", value: "secondary" }
+                    default: "primary"
+              - label: "Video (optional)"
+                name: "video"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "External video URL (YouTube/Vimeo)", name: "external_url", widget: "string", required: false }
+                  - { label: "MP4 file (self-hosted)", name: "mp4", widget: "file", required: false, hint: "If set, used when no external URL is provided." }
+                  - { label: "Poster image", name: "poster", widget: "image", required: false }
+                  - { label: "Caption / transcript", name: "transcript", widget: "text", required: false, hint: "For accessibility/SEO." }
+                  
       - label: "About"
         name: "about"
         file: "src/about.html"
