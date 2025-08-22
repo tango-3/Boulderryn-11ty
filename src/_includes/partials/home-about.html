@@ -1,0 +1,92 @@
+{# Home - About section (h2 + SVG are hard-coded) #}
+{% set block = about %}
+{% if block %}
+<div class="overflow-hidden sm:py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
+      
+      <div class="order-last sm:order-first lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
+        <h2 class="sr-only">Good vibes always. Boulderyn is Falmouth and Penryn's only indoor climbing centre.</h2>
+        <img
+          src="/static/svg/good-vibes.svg"
+          alt=""
+          class="w-full"
+          aria-hidden="true"
+          loading="lazy"
+          width="1200" height="300"
+        />
+      </div>
+
+      <div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
+        {% if block.images and block.images.large and block.images.large.src %}
+        <div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
+          <img
+            src="{{ block.images.large.src | url }}"
+            alt="{{ block.images.large.alt | default('') }}"
+            class="aspect-[7/5] w-[37rem] max-w-none bg-gray-800 object-cover sm:w-[42rem]"
+            loading="lazy"
+            width="1184" height="846"
+          />
+        </div>
+        {% endif %}
+
+        <div class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
+          {% if block.images and block.images.mid and block.images.mid.src %}
+          <div class="order-first flex w-64 flex-none justify-end self-end sm:w-40 lg:w-auto">
+            <img
+              src="{{ block.images.mid.src | url }}"
+              alt="{{ block.images.mid.alt | default('') }}"
+              class="aspect-[4/3] w-[24rem] max-w-none flex-none bg-gray-800 object-cover"
+              loading="lazy"
+              width="896" height="672"
+            />
+          </div>
+          {% endif %}
+
+          {% if block.images and block.images.tall and block.images.tall.src %}
+          <div class="flex w-96 flex-auto justify-end sm:hidden lg:block lg:w-auto lg:flex-none">
+            <img
+              src="{{ block.images.tall.src | url }}"
+              alt="{{ block.images.tall.alt | default('') }}"
+              class="aspect-[7/5] w-[37rem] max-w-none flex-none bg-gray-800 object-cover sm:w-[30rem]"
+              loading="lazy"
+              width="1184" height="846"
+            />
+          </div>
+          {% endif %}
+
+          <div class="sm:block sm:flex-auto lg:w-auto lg:flex-none">
+            <div class="flex w-full flex-col lg:w-[24rem]">
+              <div class="text-white font-noto">
+                {% if block.heading_lines and block.heading_lines.length %}
+                <h3 class="mb-4 text-3xl sm:text-5xl uppercase font-flama font-normal">
+                    {% for item in block.heading_lines %}
+                    <span class="sm:block">{{ (item.line or item) | markdownInline | safe }}</span>
+                    {% endfor %}
+                </h3>
+                {% endif %}
+
+                {% if block.body %}
+                <div class="prose prose-invert">
+                    {{ block.body | markdown | safe }}
+                </div>
+                {% endif %}
+
+                {% if block.button and block.button.url and block.button.text %}
+                {% set btnClass = "btn btn-primary" %}
+                {% if block.button.style == "secondary" %}
+                    {% set btnClass = "btn btn-secondary" %}
+                {% endif %}
+                <div class="pt-8 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+                    <a href="{{ block.button.url | url }}" class="{{ btnClass }}">{{ block.button.text }}</a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+{% endif %}

@@ -1,9 +1,125 @@
-<footer class="{{ 'fixed' if path == 'home' }} bottom-0 text-center w-full py-4">
-    <small class="text-gray-500">Copyright ©
-        {{settings.name}}
-        2020. Made with ❤ by
-        <a href="{{settings.url}}" target="_blank" class="underline">{{settings.author}}</a>
-        •
-        <a href="https://github.com/surjithctly/neat-starter" class="underline" target="_blank" rel="noopener">View on Github</a>
-    </small>
+<footer>
+  <div class="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8 border-t-2 border-white pt-10">
+      <div class="space-y-8">
+        <a href="/">
+          <span class="sr-only">Boulderryn</span>
+          <img src="static/svg/boulderryn-logo.svg" alt="Boulderryn - Penryn and Falmouth's only Indoor Bouldering Space" class="xl:h-44 h-32" />
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <!-- Column group 1: Location + Opening Hours -->
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <!-- Location -->
+          <div class="text-sm leading-7">
+            <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">Location</h3>
+            <div class="font-noto text-white font-semibold">
+              {% set location = site.location %}
+              {% for line in location.address %}
+                {{ line }}<br />
+              {% endfor %}
+            </div>
+            <div class="mt-10 space-y-6">
+              {% if location.googleMapsUrl %}
+                <a href="{{ location.googleMapsUrl }}" class="btn btn-secondary text-sm">Directions</a>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Opening Hours -->
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">Opening Hours</h3>
+            <div class="text-sm">
+              {% include "partials/times.html" %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Column group 2: Dynamic Primary + Secondary nav -->
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+
+          <!-- Primary nav -->
+          <div>
+            <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">Navigation</h3>
+            <h3 class="sr-only">Main navigation</h3>
+            <ul role="list" class="mt-6 space-y-4 uppercase">
+              {% for item in collections.primaryNav %}
+                {% set isActive = item.url | isCurrentUrl(page.url) %}
+                <li>
+                  <a href="{{ item.url }}"
+                     class="text-sm leading-6 hover:text-primary {% if isActive %}font-bold text-primary{% else %}text-white{% endif %}"
+                     {% if item.external %}target="_blank" rel="noopener"{% endif %}
+                     {% if isActive %}aria-current="page"{% endif %}>
+                    {{ item.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Secondary nav -->
+          <div class="mt-10 md:mt-0">
+            <h3 class="sr-only">Secondary navigation</h3>
+            {% if collections.secondaryNav and collections.secondaryNav | length %}
+              <ul role="list" class="mt-6 space-y-4 uppercase">
+                {% for item in collections.secondaryNav %}
+                  {% set isActive = item.url | isCurrentUrl(page.url) %}
+                  <li>
+                    <a href="{{ item.url }}"
+                       class="text-sm leading-6 hover:text-primary {% if isActive %}font-bold text-primary{% else %}text-white{% endif %}"
+                       {% if item.external %}target="_blank" rel="noopener"{% endif %}
+                       {% if isActive %}aria-current="page"{% endif %}>
+                      {{ item.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="mt-14 border-t-2 border-white pt-8">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10  lg:grid-cols-12 lg:gap-8 justify-between">
+        <div class="max-w-md lg:col-span-6">
+          <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl uppercase font-flama">Stay in the loop</h2>
+          <p class="text-white font-light">Join our mailing list for updates, offers, and events at BoulderRYN.</p>
+        </div>
+
+        <form
+          action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondown.username }}"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://buttondown.com/{{ site.buttondown.username }}', 'popupwindow')"
+          class="w-full lg:col-span-6 lg:pt-2 text-right flex gap-2"
+        >
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            class="text-white uppercase bg-transparent border-4 border-white p-3 flex-1"
+            required
+          />
+          <button type="submit" class="btn btn-primary border-primary border-2">
+            I'm in
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-10 border-t-2 border-white pt-6 sm:mt-10 font-noto flex justify-between">
+        <p class="text-sm leading-6 text-white">
+            &copy; {{ "" | year }} {{ site.core.name }}. All rights reserved.
+        </p>
+        <a href="{{ site.instagram }}">
+            <img src="static/svg/insta-icon.svg" alt="Instagram" class="w-6 h-6">
+        </a>
+    </div>
+  </div>
 </footer>

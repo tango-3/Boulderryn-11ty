@@ -1,0 +1,10 @@
+openingHours:
+  - { day: Monday,    closed: true, open: "", close: "", notes: "" }
+  - { day: Tuesday,   closed: false, open: "10:00", close: "21:00", notes: "" }
+  - { day: Wednesday, closed: false, open: "10:00", close: "21:00", notes: "" }
+  - { day: Thursday,  closed: false, open: "10:00", close: "21:00", notes: "" }
+  - { day: Friday,    closed: false, open: "10:00", close: "21:00", notes: "" }
+  - { day: Saturday,  closed: false, open: "10:00", close: "19:30", notes: "" }
+  - { day: Sunday,    closed: false, open: "10:00", close: "16:00", notes: "" }
+
+bankHolidayMessage: "Check socials or give us a shout, times may vary."

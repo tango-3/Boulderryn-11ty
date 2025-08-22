@@ -15,16 +15,26 @@ module.exports = function (eleventyConfig) {
   const md = markdownIt({ html: true, breaks: true, linkify: true });
   eleventyConfig.addFilter("markdown", (content) => (!content ? "" : md.render(String(content))));
 
+  eleventyConfig.addFilter("markdownInline", (content) =>
+  !content ? "" : md.renderInline(String(content))
+  );
+
   // Human-readable date
   eleventyConfig.addFilter("readableDate", (dateObj) =>
     DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd LLL yyyy")
   );
 
+  // Current year filter
+  eleventyConfig.addFilter("year", () => {
+    return DateTime.now().toFormat("yyyy");
+  });
+  
   // Syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Support .yaml in _data
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+  eleventyConfig.addDataExtension("yml",  (contents) => yaml.load(contents));
 
   // Passthroughs
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" }); // <-- serve /admin/ fully

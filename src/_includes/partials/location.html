@@ -1,0 +1,81 @@
+{% set loc = site.location %}
+{% set lat = loc.latitude %}
+{% set lng = loc.longitude %}
+{% set zoom = loc.zoom or 16 %}
+{% set name = loc.name or "Our location" %}
+{% set addr = loc.address %}
+
+{# Build directionsUrl without a ternary #}
+{% set directionsUrl = "" %}
+{% if loc.googleMapsUrl and (loc.googleMapsUrl | trim) %}
+  {% set directionsUrl = loc.googleMapsUrl %}
+{% else %}
+  {% set directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lng %}
+{% endif %}
+
+{# Build embedSrc safely #}
+{% set hasKey = site.googleMapsApiKey and (site.googleMapsApiKey | trim) %}
+{% set embedSrc = "" %}
+{% if loc.embedUrl and (loc.embedUrl | trim) %}
+  {% set embedSrc = loc.embedUrl %}
+{% elif hasKey %}
+  {% set embedSrc = "https://www.google.com/maps/embed/v1/place?key="
+    + (site.googleMapsApiKey | url_encode)
+    + "&q=" + lat + "," + lng
+    + "&zoom=" + zoom
+    + "&maptype=roadmap" %}
+{% endif %}
+
+<section class="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-2 my-32 gap-8">
+  <!-- Left: Map -->
+  <div class="flex items-center justify-center px-8 md:justify-end md:px-8">
+    <div class="w-full">
+      {% if embedSrc %}
+        <div class="aspect-[4/3] sm:aspect-[9/16]">
+          <iframe
+            class="block w-full h-full"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+            title="Map. {{ name }}"
+            src="{{ embedSrc }}">
+          </iframe>
+        </div>
+      {% else %}
+        <div class="aspect-[4/3] sm:aspect-[16/9] grid place-items-center bg-slate-900 text-slate-100">
+          <p class="px-6 text-center">
+            Map preview unavailable. <a class="underline" href="{{ directionsUrl }}">Open in Google Maps</a>.
+          </p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Right: Content -->
+  <div class="flex items-start px-8 md:px-8 mx-auto">
+    <div class="max-w-md w-full">
+      <h2 class="sr-only">{{ loc.name }}</h2>
+      <img src="/static/svg/plan-your-route.svg" alt="" class="w-full" aria-hidden="true" loading="lazy" width="1200" height="300" />
+
+      {% if loc.locationDescription %}
+        <div class="my-8 space-y-3 text-white prose prose-invert font-noto">
+          {{ loc.locationDescription | markdown | safe}}
+        </div>
+      {% endif %}
+
+      <div class="mt-10 space-y-6">
+        {% if loc.button %}
+          {% for btn in loc.button %}
+            {% set btnClass = "" %}
+            {% if btn.style == "primary" %}
+              {% set btnClass = "btn btn-primary" %}
+            {% elif btn.style == "secondary" %}
+              {% set btnClass = "btn btn-secondary" %}
+            {% endif %}
+            <a href="{{ btn.url }}" class="{{ btnClass }}">{{ btn.text }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

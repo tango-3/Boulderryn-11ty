@@ -1,0 +1,18 @@
+name: "Plan Your Route to Boulderyn is Falmouth and Penryn's only indoor climbing centre."
+address:
+  - "BoulderRYN"
+  - "Kernick Park"
+  - "Penryn"
+  - "TR10 9DD"
+
+latitude: 50.1689
+longitude: -5.1036
+googleMapsUrl: "https://maps.app.goo.gl/6XJeSjtwMjYyF576A" 
+embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8585.353369938675!2d-5.271854779124002!3d50.22766594661015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486b21d4e02183c5%3A0xe5397f182577b3a6!2sFibreHub!5e0!3m2!1sen!2suk!4v1755778167137!5m2!1sen!2suk"
+locationDescription: > 
+  **Just 5 minutes** from Exeter University's Penryn Campus,
+  you'll find us just on the main Kernick road on the very edge of Kernick Business Park. Easy to reach by bus, rail, bike or a wander from Penryn Town.
+button:
+  - text: Directions
+    url: https://maps.app.goo.gl/6XJeSjtwMjYyF576A
+    style: primary

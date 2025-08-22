@@ -112,9 +112,52 @@ collections:
                   - { label: "MP4 file (self-hosted)", name: "mp4", widget: "file", required: false, hint: "If set, used when no external URL is provided." }
                   - { label: "Poster image", name: "poster", widget: "image", required: false }
                   - { label: "Caption / transcript", name: "transcript", widget: "text", required: false, hint: "For accessibility/SEO." }
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - label: "Images"
+                name: "images"
+                widget: "object"
+                fields:
+                  - label: "Large Image"
+                    name: "large"
+                    widget: "object"
+                    fields:
+                      - { label: "Image", name: "src", widget: "image", required: false }
+                      - { label: "Alt text", name: "alt", widget: "string", required: false }
+                  - label: "Mid Image"
+                    name: "mid"
+                    widget: "object"
+                    fields:
+                      - { label: "Image", name: "src", widget: "image", required: false }
+                      - { label: "Alt text", name: "alt", widget: "string", required: false }
+                  - label: "Tall Image"
+                    name: "tall"
+                    widget: "object"
+                    fields:
+                      - { label: "Image", name: "src", widget: "image", required: false }
+                      - { label: "Alt text", name: "alt", widget: "string", required: false }
+              - label: "Heading Lines"
+                name: "heading_lines"
+                widget: "list"
+                field: { label: "Line", name: "line", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+              - label: "Button"
+                name: "button"
+                widget: "object"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - label: "Style"
+                    name: "style"
+                    widget: "select"
+                    options:
+                      - { label: "Primary", value: "primary" }
+                      - { label: "Secondary", value: "secondary" }
                   
-      - label: "About"
-        name: "about"
+      - label: "About Page"
+        name: "about_page"
         file: "src/about.html"
         fields:
           - { label: "Title", name: "title", widget: "string" }
@@ -260,28 +303,87 @@ collections:
         allow_add: true
       - { label: "Body", name: "body", widget: "markdown" }
 
-  # --- Site settings (kept as-is) ---
+  # --- Site settings ---
   - label: "Settings"
     name: "settings"
     editor:
       preview: false
     files:
-      - label: "Quick Links"
-        name: "links"
-        file: "src/_data/quicklinks.yaml"
+      # --- NEW logical categories under `site/` ---
+      - label: "Core"
+        name: "site_core"
+        file: "src/_data/site/core.yml"
         fields:
-          - label: Nav Items
-            name: links
-            widget: list
-            collapsed: false
+          - { label: "Site Title", name: "siteTitle", widget: "string", required: true }
+          - { label: "Tagline", name: "siteTagline", widget: "string", required: false }
+
+      - label: "SEO"
+        name: "site_seo"
+        file: "src/_data/site/seo.yml"
+        fields:
+          - { label: "Default Meta Title", name: "metaTitle", widget: "string", required: true }
+          - { label: "Default Meta Description", name: "metaDescription", widget: "text", required: true, hint: "150–160 characters." }
+          - { label: "Default OpenGraph Image", name: "defaultOgImage", widget: "image", required: false, allow_multiple: false }
+
+      - label: "Social & Contact"
+        name: "site_social"
+        file: "src/_data/site/social.yml"
+        fields:
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+          - { label: "TikTok URL", name: "tiktok", widget: "string", required: false }
+          - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+          - { label: "Email", name: "email", widget: "string", required: false, hint: "hello@boulderryn.co.uk" }
+          - { label: "Phone", name: "phone", widget: "string", required: false, hint: "+44…" }
+
+      - label: "Location"
+        name: "site_location"
+        file: "src/_data/site/location.yml"
+        fields:
+          - { label: "Venue Name", name: "name", widget: "string", required: false }
+          - label: "Address"
+            name: "address"
+            widget: "list"
+            field: { label: "Line", name: "line", widget: "string" }
+          - { label: "Latitude", name: "latitude", widget: "number", value_type: "float", required: false }
+          - { label: "Longitude", name: "longitude", widget: "number", value_type: "float", required: false }
+          - { label: "Google Maps URL", name: "googleMapsUrl", widget: "string", required: false }
+          - { label: "Maps Embed URL (iframe src)", name: "embedUrl", widget: "text", required: false }
+          - { label: "Location Description", name: "locationDescription", widget: "markdown", required: false }
+          - label: "Buttons"
+            name: "button"
+            widget: "list"
+            summary: "{{fields.text}} → {{fields.url}}"
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: URL, name: url, widget: string }
-              - { label: Description, name: desc, widget: string }
-      - label: "Meta Settings"
-        name: "site_settings"
-        file: "src/_data/settings.yaml"
+              - { label: "Button Text", name: "text", widget: "string" }
+              - { label: "Button URL", name: "url", widget: "string" }
+              - label: "Style"
+                name: "style"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+
+      - label: "Opening Hours"
+        name: "site_opening_hours"
+        file: "src/_data/site/openingHours.yml"
         fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Author, name: author, widget: string }
-          - { label: URL, name: url, widget: string }
+          - label: "Opening Hours"
+            name: "openingHours"
+            widget: "list"
+            summary: "{{fields.day}} {{fields.open}} – {{fields.close}}"
+            fields:
+              - label: "Day"
+                name: "day"
+                widget: "select"
+                options: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+              - { label: "Closed", name: "closed", widget: "boolean", default: false }
+              - { label: "Opens", name: "open", widget: "string", required: false, pattern: ['^([01][0-9]|2[0-3]):[0-5][0-9]$', "Use HH:MM"] }
+              - { label: "Closes", name: "close", widget: "string", required: false, pattern: ['^([01][0-9]|2[0-3]):[0-5][0-9]$', "Use HH:MM"] }
+              - { label: "Notes", name: "notes", widget: "string", required: false }
+          - label: "Bank Holiday Message"
+            name: "bankHolidayMessage"
+            widget: "string"
+            required: false
+            hint: "Short note shown next to 'Bank Holidays'"
+            default: "Check socials or give us a shout, times may vary."

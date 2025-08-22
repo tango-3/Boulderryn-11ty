@@ -1,0 +1,32 @@
+{% set hours = site.openingHours %}
+{% if hours and hours.openingHours %}
+    {% set hours = hours.openingHours %}
+{% endif %}
+{% set bankMsg = site.openingHours.bankHolidayMessage or "Check socials or give us a shout, times may vary." %}
+
+
+    <div class="mt-6 space-y-3 text-white font-noto">
+    {% if hours and hours | length %}
+        {% for h in hours %}
+        <p class="flex justify-start gap-3 font-extralight">
+            <span>{{ h.day }}</span>
+            {% if h.closed %}
+            <span class="font-bold text-primary">
+                Closed{% if h.notes %} <span class="opacity-70 text-sm">({{ h.notes }})</span>{% endif %}
+            </span>
+            {% else %}
+            <span class="font-bold">
+                <time datetime="{{ h.open }}">{{ h.open }}</time> - <time datetime="{{ h.close }}">{{ h.close }}</time>
+            </span>
+            {% endif %}
+        </p>
+        {% endfor %}
+    {% else %}
+        <p>Hours coming soon.</p>
+    {% endif %}
+    </div>
+
+    <p class="flex flex-col font-semibold mt-6">
+        <span>Bank Holidays</span>
+        <span class="font-light">{{ bankMsg }}</span>
+    </p>
