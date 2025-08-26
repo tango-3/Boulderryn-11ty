@@ -1,0 +1,40 @@
+---
+layout: default
+title: Sign Before You Climb.
+path: waivers
+description: Waivers - Before you hit the wall, we'll need you to fill out a quick waiver.
+menu:
+  title: Waivers
+  order: 2
+  location: primary
+hero:
+  svgTitle: /static/svg/waivers.svg
+  introduction: >
+    Before you hit the wall, we'll need you to fill out a quick waiver. It only
+    takes a minute and covers the important safety stuff. Sign online below then
+    you're good to go.  
+  image:
+    src: /static/img/pexels-cottonbro-6701459.jpg
+    alt: Climbers on the overhang wall at Boulderryn
+  buttons:
+    - text: Contact Us
+      url: /contact/
+      style: primary
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="min-h-screen overflow-y-auto overscroll-x-none">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/hero.html" %}
+
+<section class="pt-12 bg-white px-6">
+
+    {% if site.core.waverEmbed %}
+    <iframe style="width:100%;height:100%;" class="min-h-screen" src="{{ site.core.waverEmbed }}" frameBorder="0" allow="accelerometer"></iframe>
+    {% endif %}
+
+</section>
+{% include "partials/footer.html" %}
+</div>

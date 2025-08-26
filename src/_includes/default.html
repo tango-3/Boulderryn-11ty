@@ -5,30 +5,55 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>"Boulderryn - Indoor Bouldering in Penryn & Falmouth"</title>
-    <meta name="description" content="Penryn and Falmouth's only indoor bouldering space. Opening August. Climb indoors to climb outdoors.">
+    <title>{{ title or site.seo.metaTitle or "Boulderryn – Indoor Bouldering in Penryn & Falmouth" }}</title>
+    <meta name="description" content="{{ description or site.seo.metaDescription or 'Penryn and Falmouth\'s only indoor bouldering space. Climb indoors to climb outdoors.' }}">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://boulderryn.co.uk{{ page.url | url }}">
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Boulderryn">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://boulderryn.co.uk {{ page.url | url }}">
-    <meta property="og:title" content=" Boulderryn - Indoor Bouldering in Penryn & Falmouth ">
-    <meta property="og:description" content="Opening August. Five minutes from the Exeter University Penryn Campus. Inspiring boulders, inspiring climbing, inspiring community.">
-    <meta property="og:image" content="https://boulderryn.co.uk/img/hands-in-chalk.png">
+    <meta property="og:url" content="https://boulderryn.co.uk{{ page.url | url }}">
+    <meta property="og:title" content="{{ title or site.seo.metaTitle or 'Boulderryn - Indoor Bouldering in Penryn & Falmouth' }}">
+    <meta property="og:description" content="{{ description or site.seo.metaDescription or 'Penryn and Falmouth\'s only indoor bouldering space. Climb indoors to climb outdoors.' }}">
+    <meta property="og:image" content="{{ hero.image.src or 'https://boulderryn.co.uk/img/hands-in-chalk.png' }}">
+    <meta property="og:locale" content="en_GB">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Boulderryn - Indoor Bouldering in Penryn & Falmouth ">
-    <meta name="twitter:description" content="Penryn and Falmouth's only indoor bouldering space. Chalk up & see you on the wall.">
-    <meta name="twitter:image" content="/static/img/hands-in-chalk.png">
+    <meta name="twitter:title" content="{{ title or site.seo.metaTitle or 'Boulderryn - Indoor Bouldering in Penryn & Falmouth' }}">
+    <meta name="twitter:description" content="{{ description or site.seo.metaDescription or 'Penryn and Falmouth\'s only indoor bouldering space. Climb indoors to climb outdoors.' }}">
+    <meta name="twitter:image" content="{{ hero.image.src or 'https://boulderryn.co.uk/img/hands-in-chalk.png' }}">
+    
+    <!-- Preload hero image -->
+    {% if hero and hero.image and hero.image.src %}
+    <link rel="preload" as="image" href="{{ hero.image.src }}" fetchpriority="high">
+    {% endif %}
 
     <!-- Favicon & Manifest -->
     <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
     <link rel="manifest" href="/static/img/site.webmanifest">
+
+    <!-- Structured Data  -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        "name": "Boulderryn",
+        "url": "https://boulderryn.co.uk",
+        "image": "{{ hero.image.src or 'https://boulderryn.co.uk/img/hands-in-chalk.png' }}",
+        "description": "{{ description or site.seo.metaDescription or 'Penryn and Falmouth\'s only indoor bouldering space. Climb indoors to climb outdoors.' }}",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Penryn",
+          "addressRegion": "Cornwall",
+          "addressCountry": "UK"
+        }
+      }
+    </script>
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#ffffff">
