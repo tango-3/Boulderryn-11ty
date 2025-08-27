@@ -3,14 +3,14 @@
     <section class=" sm:mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
       <div class="mb-4 sm:mb-10 text-white lg:pr-8 font-noto prose prose-invert -mt-8">
         {# Intro lead (WYSIWYG/Markdown) #}
-        <div class="text-xl/8 font-extralight">
+        <div class="text-xl/8 font-extralight text-pretty">
           {% if intro and intro.lead %}
             {{ intro.lead | markdown | safe }}
           {% endif %}
         </div>
 
         {# Intro body (WYSIWYG/Markdown) #}
-        <div class="mt-8 text-base/7">
+        <div class="mt-8 text-base/7 text-pretty">
           {% if intro and intro.body %}
             {{ intro.body | markdown | safe }}
           {% endif %}

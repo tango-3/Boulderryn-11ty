@@ -1,0 +1,134 @@
+---
+layout: default
+title: Prices - Passes & Memberships. We've got options that work for you.
+path: prices
+description: Prices - Whether you're climbing now and then or all the time,
+  we’ve got options that work for you. Go casual with pay-as-you-go, grab a
+  10-visit pass, or join the crew with a monthly membership. No pressure, just
+  good value and easy access to the wall.
+menu:
+  title: Prices
+  order: 3
+  location: primary
+hero:
+  svgTitle: /static/svg/prices.svg
+  introduction: >
+    Whether you're climbing now and then or all the time, we’ve got options that
+    work for you. Go casual with pay-as-you-go, grab a 10-visit pass, or join
+    the crew with a monthly membership. No pressure, just good value and easy
+    access to the wall.
+  image:
+    src: /static/img/pexels-cottonbro-6701459.jpg
+    alt: Climbers on the overhang wall at Boulderryn
+  buttons: []
+pricingTables:
+  - title: Pay As You Go
+    description: No need to book in advance, just drop in and climb.
+    note: Please bring a valid ID for discounts.
+    button:
+      label: Buy Single Entry
+      url: https://widgets.sendmoregetbeta.com/13413/pass?pmtType=29&sortDescending=false&showOnly=75298%2C75302%2C75299%2C75300%2C75301&hideHeader=false
+    tableHeading: Single entry
+    headers:
+      - label: Peak
+        subtext: Monday to Friday from 4pm and weekends.
+      - label: Off Peak
+    rows:
+      - label: Adult
+        subtext: 18 - 60
+        prices:
+          - £15
+          - £12.50
+      - label: Concession / Student / U18
+        subtext: Over 60's, NHS Staff / Blue Light Card holders, Military, and Students.
+        prices:
+          - £12.50
+          - £12.50
+      - label: Under 16
+        subtext: More information
+        prices:
+          - £12.00
+          - £12.00
+      - label: 8–10
+        subtext: More information
+        prices:
+          - £10.50
+          - £10.50
+      - label: Shoe Rental
+        prices:
+          - £3.50
+          - £3.50
+      - label: First Time Registration
+        subtext: The registration fee is a one-off payment on your first time climbing
+        prices:
+          - £3
+          - £3
+  - title: Multi Visit Pass
+    description: 11 visits for the price of 10!
+    note: Please bring a valid ID for discounts.
+    button:
+      label: Buy Pass
+      url: https://widgets.sendmoregetbeta.com/13413/pass?pmtType=29&sortDescending=false&showOnly=75303%2C75304&hideHeader=false
+    tableHeading: 11 Visit Pass
+    headers:
+      - label: Price
+    rows:
+      - label: Adult
+        prices:
+          - £135
+      - label: Concession / Student / U18
+        subtext: Over 60's, NHS Staff / Blue Light Card holders, Military, and Students.
+        prices:
+          - £112.50
+  - title: Membership
+    description: The best value way to access our wall.
+    note: Please bring a valid ID for discounts.
+    button:
+      label: Become a member
+      url: https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
+    tableHeading: Memberships
+    headers:
+      - label: Peak
+        subtext: Monday to Friday from 4pm and weekends.
+      - label: Off Peak
+    rows:
+      - label: Adult - Monthly
+        subtext: Monthly payment by Direct Debit
+        prices:
+          - £42
+          - £32
+      - label: Adult - Annual Membership
+        subtext: Annual Payment
+        prices:
+          - £465
+          - £352
+      - label: Concession / Student / U18 - Monthly
+        subtext: Over 60's, NHS Staff / Blue Light Card holders, Military, and Students.
+          Monthly payment by Direct Debit
+        prices:
+          - £42
+          - £32
+      - label: Concession / Student / U18 - Annual
+        subtext: Over 60's, NHS Staff / Blue Light Card holders, Military, and Students.
+          Annual Payment
+        prices:
+          - £385
+          - £330
+      - label: U16 Month Pass
+        subtext: Unlimited access for one month
+        prices:
+          - £35
+          - £35
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="min-h-screen overflow-y-auto overscroll-x-none">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/hero.html" %}
+
+{% include "partials/price-table.html" %}
+
+{% include "partials/footer.html" %}
+</div>

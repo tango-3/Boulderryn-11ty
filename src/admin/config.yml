@@ -155,6 +155,78 @@ collections:
                     options:
                       - { label: "Primary", value: "primary" }
                       - { label: "Secondary", value: "secondary" }
+      - label: "Prices"
+        name: "prices"
+        file: "src/prices.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "SVG Title", name: "svgTitle", widget: "string", required: false }
+              - { label: "Introduction", name: "introduction", widget: "text" }
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "Image URL", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary"] }
+          - label: "Pricing Tables"
+            name: "pricingTables"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Note", name: "note", widget: "string", required: false }
+              - label: "Button"
+                name: "button"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - { label: "Table Heading", name: "tableHeading", widget: "string" }
+              - label: "Headers"
+                name: "headers"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Subtext", name: "subtext", widget: "string", required: false }
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Subtext", name: "subtext", widget: "string", required: false }
+                  - { label: "Prices", name: "prices", widget: "list", field: { label: "Price", name: "price", widget: "string" } }
                   
       - label: "About Page"
         name: "about_page"
@@ -258,11 +330,12 @@ collections:
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
       - label: "FAQ"
         name: "faq"
-        file: "src/faq.html"
+        file: "src/faqs.html"
         fields:
+
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description (SEO)", name: "description", widget: "string", required: false }
-          # - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+
           - label: "Menu"
             name: "menu"
             widget: "object"
@@ -281,6 +354,35 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "SVG Title", name: "svgTitle", widget: "string", required: false }
+              - { label: "Introduction", name: "introduction", widget: "text" }
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "Image URL", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary"] }
+
+
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "markdown", minimal: true }
+              - { label: "Answer", name: "answer", widget: "markdown" }
 
       - label: "Waiver"
         name: "waiver"

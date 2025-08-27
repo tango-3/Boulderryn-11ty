@@ -1,0 +1,61 @@
+<div class="px-4 sm:px-6 lg:px-8 py-20 max-w-7xl mx-auto font-noto">
+  {% for table in pricingTables %}
+    <div class="sm:flex sm:items-center my-12">
+      <div class="sm:flex-auto">
+        <h2 class="text-2xl font-semibold text-white text-left font-flama uppercase">{{ table.title }}</h2>
+        <div class="mt-2 text-lg text-white font-light prose prose-invert">
+          {{ table.description }}
+        </div>
+        {% if table.note %}
+          <p class="text-primary mt-2 italic font-bold text-xs">{{ table.note }}</p>
+        {% endif %}
+      </div>
+      {% if table.button %}
+        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <a href="{{ table.button.url }}" class="btn btn-primary">{{ table.button.label }}</a>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="-mx-4 mt-10 ring-1 ring-white/15 sm:mx-0 px-2">
+      <table class="relative min-w-full divide-y divide-white/15">
+        <thead>
+          <tr>
+            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm sm:text-xl font-semibold text-white sm:pl-6">
+              {{ table.tableHeading }}
+            </th>
+            {% for head in table.headers %}
+              <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-white">
+                {{ head.label }}
+                {% if head.subtext %}
+                  <div class="mt-1 flex flex-col text-gray-400 sm:block text-xs font-light">
+                    <span>{{ head.subtext }}</span>
+                  </div>
+                {% endif %}
+              </th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/15">
+          {% for row in table.rows %}
+            <tr>
+              <td class="relative py-4 pl-4 pr-3 text-sm sm:pl-6">
+                <div class="font-medium text-white">{{ row.label }}</div>
+                {% if row.subtext %}
+                  <div class="mt-1 flex flex-col text-gray-400 sm:block text-xs">
+                    <span>{{ row.subtext }}</span>
+                  </div>
+                {% endif %}
+              </td>
+              {% for price in row.prices %}
+                <td class="px-3 py-3.5 text-sm text-center text-primary font-bold">
+                  <div>{{ price }}</div>
+                </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endfor %}
+</div>

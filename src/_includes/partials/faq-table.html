@@ -1,0 +1,15 @@
+<div class="font-noto">
+  <div class="mx-auto max-w-7xl px-6 py-24  lg:px-8 lg:py-23">
+    <h2 class="text-4xl font-semibold tracking-tight text-white sm:text-5xl font-flama uppercase">Frequently asked</h2>
+    <dl class="mt-20 divide-y divide-primary/70">
+      {% for faq in faqs %}
+        <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+          <dt class="text-base/7 font-semibold text-white lg:col-span-5">{{ faq.question | markdownInline }}</dt>
+          <dd class="mt-4 lg:col-span-7 lg:mt-0 prose prose-invert">
+            <p class="text-base/7 text-white">{{ faq.answer | markdown | safe}}</p>
+          </dd>
+        </div>
+      {% endfor %}
+    </dl>
+  </div>
+</div>
