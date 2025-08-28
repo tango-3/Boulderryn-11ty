@@ -253,6 +253,7 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+              
       - label: "Climbing"
         name: "climbing"
         file: "src/climbing.html"
@@ -278,6 +279,7 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+
       - label: "Membership"
         name: "membership"
         file: "src/membership.html"
@@ -303,13 +305,14 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+
       - label: "Contact"
         name: "contact"
         file: "src/contact.html"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "string", required: false }
-          - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - { label: "Description (SEO)", name: "description", widget: "string", required: false }
+
           - label: "Menu"
             name: "menu"
             widget: "object"
@@ -328,6 +331,27 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "SVG Title", name: "svgTitle", widget: "string", required: false }
+              - { label: "Introduction", name: "introduction", widget: "text" }
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "Image URL", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary"] }
+
       - label: "FAQ"
         name: "faq"
         file: "src/faqs.html"
