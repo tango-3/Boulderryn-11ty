@@ -25,7 +25,7 @@
                 <a href="{{ location.googleMapsUrl }}" class="btn btn-secondary text-xs">Directions</a>
                 {% endif %}
                 {% if location.what3words %}
-                <a href="{{ site.location.what3words }}" class="btn btn-secondary text-xs">What3Words</a>
+                <a href="https://w3w.co/{{ location.what3words }}" target="_blank" rel="noopener" class="btn btn-secondary text-xs">What3Words</a>
                 {% endif %}
             </div>
             {% if site.location.berylBike or site.location.trainStation or site.location.busStop %}
