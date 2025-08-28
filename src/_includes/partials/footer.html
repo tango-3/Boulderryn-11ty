@@ -14,23 +14,39 @@
           <!-- Location -->
           <div class="text-sm leading-7">
             <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">Location</h3>
-            <div class="font-noto text-white font-semibold">
+            <div class="font-noto text-white font-semibold text-sm sm:text-base">
               {% set location = site.location %}
               {% for line in location.address %}
                 {{ line }}<br />
               {% endfor %}
             </div>
-            <div class="mt-10 space-y-6">
-              {% if location.googleMapsUrl %}
-                <a href="{{ location.googleMapsUrl }}" class="btn btn-secondary text-sm">Directions</a>
-              {% endif %}
+            <div class="mt-6 sm:mt-10 space-y-3 flex flex-wrap">
+                {% if location.googleMapsUrl %}
+                <a href="{{ location.googleMapsUrl }}" class="btn btn-secondary text-xs">Directions</a>
+                {% endif %}
+                {% if location.what3words %}
+                <a href="{{ location.location.what3words }}" class="btn btn-secondary text-xs">What3Words</a>
+                {% endif %}
             </div>
+            {% if site.location.berylBike or site.location.trainStation or site.location.busStop %}
+                <div class="mt-8 space-y-2 text-white prose prose-invert font-noto text-xs">
+                {% if site.location.berylBike %}
+                    <p><span class="text-primary font-bold">Beryl Bikes:</span> {{ site.location.berylBike }}</p>
+                {% endif %}
+                {% if site.location.trainStation %}
+                    <p><span class="text-primary font-bold">Nearest Train Station:</span> {{ site.location.trainStation }}</p>
+                {% endif %}
+                {% if site.location.busStop %}
+                    <p><span class="text-primary font-bold">Bus Stop:</span> {{ site.location.busStop }}</p>
+                {% endif %}
+                </div>
+            {% endif %}
           </div>
 
           <!-- Opening Hours -->
           <div class="mt-10 md:mt-0">
             <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">Opening Hours</h3>
-            <div class="text-sm">
+            <div class="text-xs sm:text-sm">
               {% include "partials/times.html" %}
             </div>
           </div>

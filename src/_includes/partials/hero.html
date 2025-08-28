@@ -43,9 +43,15 @@
   </div>
 
 
-  {% if hero and hero.image and hero.image.src %}
+{% if hero and hero.image and hero.image.src %}
     <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img src="{{ hero.image.src | url }}" alt="{{ hero.image.alt | default('') }}" class="aspect-[3/2] object-cover lg:aspect-auto lg:size-full" loading="lazy" />
+        {% nlImage {
+        src: hero.image.src,
+        alt: hero.image.alt | default(""),
+        widths: [640, 1024, 1440, 1920],
+        sizes: "(min-width: 1024px) 50vw, 100vw",
+        className: "aspect-[3/2] object-cover lg:aspect-auto lg:size-full"
+        } %}
     </div>
-  {% endif %}
+{% endif %}
 </div>

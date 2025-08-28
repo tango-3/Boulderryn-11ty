@@ -28,7 +28,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("year", () => {
     return DateTime.now().toFormat("yyyy");
   });
-  
+
   // Syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -48,6 +48,45 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/static/css");
   eleventyConfig.addPassthroughCopy("./src/static/svg");
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
+
+  /**
+   * Netlify Image CDN shortcode for Eleventy (11ty).
+   *
+   * Usage:
+   *   {% nlImage {
+   *     src: '/static/img/example.jpg',
+   *     alt: 'Descriptive alt text',
+   *     widths: [480, 768, 1080],
+   *     sizes: '(min-width: 1024px) 50vw, 100vw',
+   *     className: 'rounded-lg shadow'
+   *   } %}
+   *
+   * This generates a responsive <picture>/<img> element with srcset
+   * pointing to Netlify’s on-the-fly image CDN:
+   *   /.netlify/images?url=/static/img/example.jpg&w=800&q=70
+   */
+  eleventyConfig.addNunjucksShortcode("nlImage", function({
+    src, alt = "", widths = [400, 800, 1200], sizes = "100vw",
+    fit = "cover", quality = 70, className = "", loading = "lazy"
+  }){
+      const makeUrl = (w) =>
+        `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}&fit=${fit}&q=${quality}`;
+
+      const srcset = widths.map(w => `${makeUrl(w)} ${w}w`).join(", ");
+      const largest = widths[widths.length - 1];
+
+      return `
+      <picture>
+        <img
+          class="${className}"
+          src="${makeUrl(widths[0])}"
+          srcset="${srcset}"
+          sizes="${sizes}"
+          alt="${alt.replace(/"/g, "&quot;")}"
+          width="${largest}"
+          loading="${loading}" decoding="async" />
+      </picture>`.trim();
+    });
 
   // --- Navigation helpers & filters ---
   function normalizeUrl(u) {

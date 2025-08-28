@@ -3,7 +3,14 @@
 <div class="bg-black max-w-7xl mx-auto">
   <div class="relative isolate flex min-h-screen flex-col justify-end sm:justify-between pt-8">
     
-    <img src="static/img/hands-in-chalk.png" alt="" class="absolute inset-0 -z-10 size-full object-cover md:object-left xl:object-contain xl:object-right-top" />
+    {% nlImage {
+      src: "/static/img/hands-in-chalk.png",
+      alt: "",
+      widths: [640, 1280, 1920],
+      sizes: "100vw",
+      className: "absolute inset-0 -z-10 size-full object-cover md:object-left xl:object-contain xl:object-right-top",
+      loading: "lazy"
+    } %}
         
     <div class="hidden sm:block">
         <a href="/" class="self-start">

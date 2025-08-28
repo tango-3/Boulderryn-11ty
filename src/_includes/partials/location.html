@@ -31,7 +31,7 @@
   <div class="flex items-center justify-center px-8 md:justify-end md:px-8">
     <div class="w-full">
       {% if embedSrc %}
-        <div class="aspect-[4/3] sm:aspect-[9/16]">
+        <div class="aspect-[9/16]">
           <iframe
             class="block w-full h-full"
             loading="lazy"
@@ -63,6 +63,20 @@
         </div>
       {% endif %}
 
+      {% if site.location.berylBike or site.location.trainStation or site.location.busStop %}
+        <div class="mt-8 space-y-2 text-white prose prose-invert font-noto">
+          {% if site.location.berylBike %}
+            <p><span class="text-primary font-bold">Beryl Bikes:</span> {{ site.location.berylBike }}</p>
+          {% endif %}
+          {% if site.location.trainStation %}
+            <p><span class="text-primary font-bold">Nearest Train Station:</span> {{ site.location.trainStation }}</p>
+          {% endif %}
+          {% if site.location.busStop %}
+            <p><span class="text-primary font-bold">Bus Stop:</span> {{ site.location.busStop }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+
       <div class="mt-10 space-y-6">
         {% if loc.button %}
           {% for btn in loc.button %}
@@ -75,7 +89,15 @@
             <a href="{{ btn.url }}" class="{{ btnClass }}">{{ btn.text }}</a>
           {% endfor %}
         {% endif %}
+
       </div>
+      {% if site.location.what3words %}
+      <div class="mt-8 space-y-6"></div>
+        <a href="https://w3w.co/{{ site.location.what3words }}" target="_blank" rel="noopener" class="btn btn-secondary">
+          What 3 Words
+        </a>
+      </div>
+      {% endif %}
     </div>
   </div>
 </section>

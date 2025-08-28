@@ -20,38 +20,41 @@
       <div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
         {% if block.images and block.images.large and block.images.large.src %}
         <div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
-          <img
-            src="{{ block.images.large.src | url }}"
-            alt="{{ block.images.large.alt | default('') }}"
-            class="aspect-[7/5] w-[37rem] max-w-none bg-gray-800 object-cover sm:w-[42rem]"
-            loading="lazy"
-            width="1184" height="846"
-          />
+          {% nlImage {
+            src: block.images.large.src,
+            alt: block.images.large.alt | default(""),
+            widths: [640, 1024, 1440],
+            sizes: "(min-width: 1024px) 42rem, 100vw",
+            className: "aspect-[7/5] w-[37rem] max-w-none bg-gray-800 object-cover sm:w-[42rem]",
+            loading: "lazy"
+          } %}
         </div>
         {% endif %}
 
         <div class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
           {% if block.images and block.images.mid and block.images.mid.src %}
           <div class="order-first flex w-64 flex-none justify-end self-end sm:w-40 lg:w-auto">
-            <img
-              src="{{ block.images.mid.src | url }}"
-              alt="{{ block.images.mid.alt | default('') }}"
-              class="aspect-[4/3] w-[24rem] max-w-none flex-none bg-gray-800 object-cover"
-              loading="lazy"
-              width="896" height="672"
-            />
+            {% nlImage {
+              src: block.images.mid.src,
+              alt: block.images.mid.alt | default(""),
+              widths: [480, 768, 896],
+              sizes: "(min-width: 1024px) 24rem, 100vw",
+              className: "aspect-[4/3] w-[24rem] max-w-none flex-none bg-gray-800 object-cover",
+              loading: "lazy"
+            } %}
           </div>
           {% endif %}
 
           {% if block.images and block.images.tall and block.images.tall.src %}
           <div class="flex w-96 flex-auto justify-end sm:hidden lg:block lg:w-auto lg:flex-none">
-            <img
-              src="{{ block.images.tall.src | url }}"
-              alt="{{ block.images.tall.alt | default('') }}"
-              class="aspect-[7/5] w-[37rem] max-w-none flex-none bg-gray-800 object-cover sm:w-[30rem]"
-              loading="lazy"
-              width="1184" height="846"
-            />
+            {% nlImage {
+              src: block.images.tall.src,
+              alt: block.images.tall.alt | default(""),
+              widths: [640, 1024, 1440],
+              sizes: "(min-width: 1024px) 37rem, 100vw",
+              className: "aspect-[7/5] w-[37rem] max-w-none flex-none bg-gray-800 object-cover sm:w-[30rem]",
+              loading: "lazy"
+            } %}
           </div>
           {% endif %}
 

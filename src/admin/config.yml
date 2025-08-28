@@ -496,6 +496,10 @@ collections:
           - { label: "Longitude", name: "longitude", widget: "number", value_type: "float", required: false }
           - { label: "Google Maps URL", name: "googleMapsUrl", widget: "string", required: false }
           - { label: "Maps Embed URL (iframe src)", name: "embedUrl", widget: "text", required: false }
+          - { label: "What3Words", name: "what3words", widget: "string", required: false, hint: "e.g. light.nerve.venues" }
+          - { label: "Beryl Bike", name: "berylBike", widget: "string", required: false }
+          - { label: "Nearest Train Station (distance)", name: "trainStation", widget: "string", required: false, hint: "e.g. 0.6 miles" }
+          - { label: "Nearest Bus Stop", name: "busStop", widget: "string", required: false, hint: "e.g. Kernick Rd Bus stop (Line 69,42)" }
           - { label: "Location Description", name: "locationDescription", widget: "markdown", required: false }
           - label: "Buttons"
             name: "button"
