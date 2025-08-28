@@ -1,7 +1,6 @@
-<header class="absolute inset-x-0 top-0 z-50">
   <!-- mobile climb indoors logo -->
   {% if page.url == '/' %}
-  <div class="absolute top-5 left-5 sm:hidden">
+  <div class="absolute top-5 left-5 sm:hidden z-50">
     <a href="/">
       <span class="sr-only">{{site.title}}</span>
       <img src="/static/svg/boulderryn-outline-logo.svg" alt="Boulderryn - Penryn and Falmouth's only Indoor Bouldering Space" class="h-44" />
@@ -9,6 +8,8 @@
   </div>
   {% endif %}
   <!-- mobile climb indoors logo ENDS -->
+<header class="sticky sm:absolute inset-x-0 top-0 z-50 mb-[-88px] sm:mb-0">
+
 
   <!-- Top bar with hamburger -->
   <nav aria-label="Primary" class="flex items-center justify-between md:p-6 lg:px-8">
