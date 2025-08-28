@@ -48,6 +48,9 @@
   .btn {
     @apply font-normal transition-colors duration-200 px-10 py-3 text-lg uppercase font-flama tracking-wider focus-visible:outline-2 focus-visible:outline-offset-2 no-underline;
   }
+  .btn-sm {
+    @apply px-6 py-2 text-sm;
+  }
   .btn-primary {
     @apply bg-primary text-black hover:text-white hover:bg-pink-700 focus-visible:outline-primary;
   }
