@@ -25,7 +25,7 @@
                 <a href="{{ location.googleMapsUrl }}" class="btn btn-secondary text-xs">Directions</a>
                 {% endif %}
                 {% if location.what3words %}
-                <a href="{{ location.location.what3words }}" class="btn btn-secondary text-xs">What3Words</a>
+                <a href="{{ site.location.what3words }}" class="btn btn-secondary text-xs">What3Words</a>
                 {% endif %}
             </div>
             {% if site.location.berylBike or site.location.trainStation or site.location.busStop %}
@@ -133,7 +133,7 @@
         <p class="text-sm leading-6 text-white">
             &copy; {{ "" | year }} {{ site.core.name }}. All rights reserved.
         </p>
-        <a href="{{ site.instagram }}">
+        <a href="{{ site.social.instagram }}">
             <img src="/static/svg/insta-icon.svg" alt="Instagram" class="w-6 h-6">
         </a>
     </div>
