@@ -28,7 +28,7 @@
                 aria-hidden="true"
                 />
           </div>
-          <div class="pt-8 lg:mr-4 xl:mr-auto flex flex-col sm:flex-row justify-end gap-x-8 gap-y-4">
+          <div class="pt-8 lg:mr-4 xl:mr-auto flex flex-wrap sm:flex-row justify-end gap-x-8 gap-y-4">
             {% if intro and intro.buttons and intro.buttons | length > 0 %}
               {% for btn in intro.buttons %}
                 {% if loop.index0 < 2 %}
