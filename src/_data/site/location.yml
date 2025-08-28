@@ -9,7 +9,7 @@ address:
 
 what3words: light.nerve.venues
 berylBike: "Corner of Parkengue and Kernick Rd"
-trainStation: 0.6 miles
+trainStation: Penryn - 0.6 miles
 busStop: "Kernick Rd Bus stop (Line 69,42)"
 
 latitude: 50.1689
@@ -17,8 +17,7 @@ longitude: -5.1036
 googleMapsUrl: "https://maps.app.goo.gl/6XJeSjtwMjYyF576A" 
 embedUrl: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1803.7216210706056!2d-5.119921969571507!3d50.16437304543593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486b23689a09b225%3A0x40567269b0fe0401!2sKernick%20Park%2C%20Penryn%20TR10%209DD!5e1!3m2!1sen!2suk!4v1756287005347!5m2!1sen!2suk
 locationDescription: > 
-  **Just 5 minutes** from Exeter University's Penryn Campus,
-  you'll find us just on the main Kernick road on the very edge of Kernick Business Park. Easy to reach by bus, rail, bike or a wander from Penryn Town.
+  **Just 5 minutes** from Exeter University's Penryn Campus, you'll find us just on the main Kernick road on the very edge of Kernick Business Park. Easy to reach by bus, rail, bike or a wander from Penryn Town.
 button:
   - text: Directions
     url: https://maps.app.goo.gl/6XJeSjtwMjYyF576A

@@ -1,0 +1,171 @@
+{% set loc = site.location %}
+{% set lat = loc.latitude %}
+{% set lng = loc.longitude %}
+{% set zoom = loc.zoom or 16 %}
+{% set name = loc.name or "Our location" %}
+{% set addr = loc.address %}
+
+{# Build directionsUrl without a ternary #}
+{% set directionsUrl = "" %}
+{% if loc.googleMapsUrl and (loc.googleMapsUrl | trim) %}
+  {% set directionsUrl = loc.googleMapsUrl %}
+{% else %}
+  {% set directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lng %}
+{% endif %}
+
+{# Build embedSrc safely #}
+{% set hasKey = site.googleMapsApiKey and (site.googleMapsApiKey | trim) %}
+{% set embedSrc = "" %}
+{% if loc.embedUrl and (loc.embedUrl | trim) %}
+  {% set embedSrc = loc.embedUrl %}
+{% elif hasKey %}
+  {% set embedSrc = "https://www.google.com/maps/embed/v1/place?key="
+    + (site.googleMapsApiKey | url_encode)
+    + "&q=" + lat + "," + lng
+    + "&zoom=" + zoom
+    + "&maptype=roadmap" %}
+{% endif %}
+<div class="relative bg-black">
+  <div class="absolute inset-0">
+    <div class="absolute inset-y-0 left-0 w-1/2 bg-black"></div>
+  </div>
+  <div class="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
+    <div class="bg-black px-6 py-16 lg:col-span-2 lg:px-8 lg:py-36 xl:pr-12">
+      <div class="mx-auto max-w-lg">
+        <h2 class="text-3xl font-semibold tracking-tight text-primary sm:text-4xl uppercase font-flama">Find Us</h2>
+        <dl class="my-6 text-base text-white font-noto">
+          <div>
+            <dt class="sr-only">Postal address</dt>
+            <dd>
+              {% if addr %}
+                <div class="not-italic" aria-label="Postal address">
+                  {% if addr and addr | length > 0 %}
+                    {% for line in addr %}
+                      <p>{{ line }}</p>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="mt-5">
+            <dt class="sr-only">Email</dt>
+            <dd class="flex">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 shrink-0 text-white">
+                <path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="ml-3 ">
+                {% if site.social.email %}
+                  <p class="font-bold">{{ site.social.email }}</p>
+                {% endif %}
+              </span>
+            </dd>
+          </div>
+
+          <div class="mt-5">
+            <dt class="sr-only">Instagram</dt>
+            <dd class="flex items-center">
+              <img src="/static/svg/insta-icon.svg" alt="Instagram" class="w-5 h-5 ">
+              <span class="ml-3">
+                {% if site.social.instagram %}
+                  <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" class="font-bold">@boulderryn</a>
+                {% endif %}
+              </span>
+            </dd>
+          </div>
+        </dl>
+
+        <ul class="mt-4 text-base text-white list-disc list-outside pl-5 space-y-2 font-noto">
+          {% if site.location.what3words %}
+            <li>
+              Find us using What 3 Words:
+              <a href="https://w3w.co/{{ site.location.what3words }}" target="_blank" rel="noopener" class=" text-primary underline">
+                {{ site.location.what3words }}
+              </a>
+            </li>
+          {% endif %}
+          {% if site.location.trainStation %}
+            <li>
+              Nearest station:
+              <span class=" text-primary">{{ site.location.trainStation }}</span>
+            </li>
+          {% endif %}
+          {% if site.location.busStop %}
+            <li>
+              Nearest bus stop:
+              <span class=" text-primary">{{ site.location.busStop }}</span>
+            </li>
+          {% endif %}
+          {% if site.location.berylBike %}
+            <li>
+              Nearest Beryl Bike:
+              <span class=" text-primary">{{ site.location.berylBike }}</span>
+            </li>
+          {% endif %}
+        </ul>
+
+        <div class="w-full my-8">
+          {% if embedSrc %}
+            <div class="aspect-[16/16]">
+              <iframe
+                class="block w-full h-full"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+                title="Map. {{ name }}"
+                src="{{ embedSrc }}">
+              </iframe>
+            </div>
+          {% else %}
+            <div class="aspect-[4/3] grid place-items-center bg-slate-900 text-slate-100 text-center p-6">
+              <p>Map preview unavailable. <a class="underline" href="{{ directionsUrl }}">Open in Google Maps</a>.</p>
+            </div>
+          {% endif %}
+        </div>
+        {% if directionsUrl %}
+          <div class="mt-4">
+            <a href="{{ directionsUrl }}" class="btn btn-secondary text-base">Directions</a>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="bg-black px-6 py-10 lg:col-span-3 lg:px-8 lg:py-36 xl:pl-12">
+      <div class="mx-auto max-w-lg lg:max-w-none">
+        <div class="mb-6">
+     
+          <h2 class="sr-only">Got a question? Let's chat</h2>
+          <img
+            src="/static/svg/contact-form.svg"
+            alt=""
+            class="w-full"
+            aria-hidden="true"
+          />
+          <p class="prose prose-invert font-noto mt-3 text-md/6 text-white">Whether you're planning your first climb, looking at memberships, or just need directions to the wall, we're here to help. Drop us a message and we'll get back to you as soon as we can.</p>
+        </div>
+        <form netlify name="contact" class="grid grid-cols-1 gap-y-4">
+          <div>
+            <label for="full-name" class="sr-only">Full name</label>
+            <input id="full-name" type="text" name="full-name" placeholder="Full name" autocomplete="name" class="w-full border-2 border-white bg-transparent p-3 uppercase text-white" required />
+          </div>
+          <div>
+            <label for="email" class="sr-only">Email</label>
+            <input id="email" type="email" name="email" placeholder="Email" autocomplete="email" class="w-full border-2 border-white bg-transparent p-3 uppercase text-white" required />
+          </div>
+          <div>
+            <label for="phone" class="sr-only">Phone</label>
+            <input id="phone" type="text" name="phone" placeholder="Phone" autocomplete="tel" class="w-full border-2 border-white bg-transparent p-3 uppercase text-white" />
+          </div>
+          <div>
+            <label for="message" class="sr-only">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Message" class="w-full border-2 border-white bg-transparent p-3 uppercase text-white" required></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Send it!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

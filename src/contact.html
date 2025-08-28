@@ -1,0 +1,32 @@
+---
+layout: default
+title: Contact us - Got Questions?
+path: contact
+description: Contact us - You're not the only one. Here are some of the things we get
+  asked most. If you're still not sure, just hit the button below and we'll be
+  happy to help.
+menu:
+  title: Contact
+  order: 5
+  location: primary
+hero:
+  svgTitle: /static/svg/contact-us.svg
+  introduction: >
+    Got a question, want to book a session, or just fancy a chat about climbing shoes? We're here for it. Drop us a message and we'll get back to you soon.
+  image:
+    src: /static/img/BoulderRyn-9.jpg
+    alt: Climbers on the overhang wall at Boulderryn
+
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="min-h-screen overflow-y-auto overscroll-x-none">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/hero.html" %}
+
+{% include "partials/contact-form.html" %}
+
+{% include "partials/footer.html" %}
+</div>
