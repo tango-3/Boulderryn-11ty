@@ -5,7 +5,7 @@
   <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
       
-      <div class="order-last sm:order-first lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
+      <div class="order-last sm:order-first lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8" data-aos="fade-right">
         <h2 class="sr-only">Good vibes always. Boulderyn is Falmouth and Penryn's only indoor climbing centre.</h2>
         <img
           src="/static/svg/good-vibes.svg"
@@ -62,7 +62,7 @@
             <div class="flex w-full flex-col lg:w-[24rem]">
               <div class="text-white font-noto">
                 {% if block.heading_lines and block.heading_lines.length %}
-                <h3 class="mb-4 text-3xl sm:text-5xl uppercase font-flama font-normal">
+                <h3 class="mb-4 text-3xl sm:text-5xl uppercase font-flama font-normal" data-aos="fade-left">
                     {% for item in block.heading_lines %}
                     <span class="sm:block">{{ (item.line or item) | markdownInline | safe }}</span>
                     {% endfor %}

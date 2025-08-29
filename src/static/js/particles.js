@@ -1,4 +1,5 @@
 
+
 // gradient-hero particle script (exact code you posted)
 const particlesContainer = document.getElementById('particles-container');
 const particleCount = 100;
@@ -105,3 +106,4 @@ const particleCount = 100;
      
 
  });
+

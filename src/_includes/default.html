@@ -67,6 +67,8 @@
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/gradient-hero.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   </head>
   <body>
 
@@ -86,6 +88,17 @@
     <!-- tailwind interactive script -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 
-
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        AOS.init({
+          duration: 800,
+          once: true,
+          offset: 100,
+        });
+      });
+    </script>
+    
   </body>
 </html>
