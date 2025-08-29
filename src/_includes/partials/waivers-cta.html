@@ -1,0 +1,90 @@
+<div class="overflow-hidden bg-black pt-12 sm:pt-22">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <section class="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+      <div class="mb-10 text-white lg:pr-8 font-noto prose prose-invert -mt-8">
+        <div class="">
+            <h2 class="sr-only">Waivers - Sign before you climb</h2>
+            <img
+            src="/static/svg/waivers.svg"
+            alt=""
+            class="w-full"
+            aria-hidden="true"
+            />
+        </div>
+        {# waiver lead (WYSIWYG/Markdown) #}
+        <div class="text-xl/8 font-extralight prose prose-invert text-white">
+          {% if waiver and waiver.lead %}
+            {{ waiver.lead | markdown | safe }}
+          {% endif %}
+        </div>
+
+        {# Intro body (WYSIWYG/Markdown) #}
+        <div class="mt-8 text-base/7 prose prose-invert text-white">
+          {% if waiver and waiver.body %}
+            {{ waiver.body | markdown | safe }}
+          {% endif %}
+        </div>
+        <div class="pt-4 lg:mr-4 xl:mr-auto flex flex-wrap sm:flex-row justify-start gap-x-4 gap-y-4">
+        {% if waiver and waiver.buttons and waiver.buttons | length > 0 %}
+            {% for btn in waiver.buttons %}
+            {% if loop.index0 < 2 %}
+                {% set style = 'btn-primary' %}
+                {% if btn.style and (btn.style | lower) == 'secondary' %}
+                {% set style = 'btn-secondary' %}
+                {% endif %}
+                <a href="{{ btn.url | url }}" class="btn {{ style }}">{{ btn.text }}</a>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        </div>
+      </div>
+      <div class="lg:row-span-2 lg:-mr-8 xl:mr-auto w-full">
+        <div class=" sm:-mx-8 lg:mx-0 h-full">
+          <div class=" lg:mr-4 xl:mr-auto flex flex-row justify-end gap-8 h-full">
+            <div class="w-full">
+              {% if waiver and waiver.video %}
+                {% set embed = waiver.video.external_url | embedUrl %}
+
+                {% if embed %}
+                  {# External (YouTube/Vimeo) #}
+                  <div class="relative w-full overflow-hidden shadow-lg">
+                    <div class="pb-[56.25%]"></div>
+                    <iframe
+                      class="absolute inset-0 block w-full h-full"
+                      src="{{ embed }}"
+                      title="waiver video"
+                      loading="lazy"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allow="autoplay; encrypted-media; picture-in-picture;"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                {% elif waiver.video.mp4 %}
+                  {# local MP4 — full-height, center-cropped, Tailwind-only #}
+                  <div class="relative w-full h-full overflow-hidden ">
+                    <video
+                      class="absolute inset-0 w-full h-full object-cover object-center"
+                      {% if waiver.video.poster %}poster="{{ waiver.video.poster | url }}"{% endif %}
+                      preload="metadata"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                    >
+                      <source src="{{ waiver.video.mp4 | url }}" type="video/mp4">
+                      {% if waiver.video.transcript %}{{ waiver.video.transcript }}{% else %}Your browser does not support the video tag.{% endif %}
+                    </video>
+                  </div>
+                {% endif %}
+
+                {% if waiver.video.transcript %}
+                  <p class="sr-only">{{ waiver.video.transcript }}</p>
+                {% endif %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

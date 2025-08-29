@@ -3,24 +3,34 @@
     <section class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
       <div class="lg:row-span-2 lg:-mr-16 xl:mr-auto">
         <div class="sm:-mx-16 lg:mx-0">
-            <div class="">
-                <h2 class="sr-only">What is bouldering - Bouldering is climbing in its purest form short climbs, soft mats, & endless challenges to keep you coming back.</h2>
+          <div>
+            <h2 class="sr-only">
+              {{ introduction.title | default("What is bouldering - Bouldering is climbing in its purest form short climbs, soft mats, & endless challenges to keep you coming back.") }}
+            </h2>
+            <div aria-hidden="true">
                 <img
                 src="/static/svg/whats-bouldering.svg"
                 alt=""
                 class="w-full"
                 aria-hidden="true"
-                />          
+                />
             </div>
-
+          </div>
         </div>
       </div>
-      <div class="mb-10 text-white lg:pr-8 font-notos">
-        <p class="text-lg/8">Bouldering is a style of climbing done on shorter walls or rock, without ropes or harnesses, with thick mats below for safety. Instead of long climbs, you take on shorter, more technical “problems” - set routes you try to solve from start to finish.</p>
-        <p class="mt-8 text-base/7">It's as much about balance, movement, and problem-solving as it is about strength, so you don't need to be a seasoned athlete to enjoy it. Routes are graded so there's something for every ability, from complete beginners to experienced climbers.</p>
-        <p class="mt-8 text-base/7">Indoors, you'll find colour-coded holds and routes that are changed regularly to keep things fresh. Outdoors, it's about the feel of real rock and the challenge of natural shapes.</p>
-        <p class="mt-8 text-base/7">Because there's no ropework involved, bouldering is easy to pick up, sociable, and great for fitting into a busy day - whether you're after a serious training session or just a good excuse to get moving.</p>
 
+      <div class="mb-10 text-white lg:pr-8 font-notos">
+        {% if introduction and introduction.lead %}
+          <div class="text-xl/8 font-extralight prose prose-invert text-white font-noto">
+            {{ introduction.lead | markdown | safe }}
+          </div>
+        {% endif %}
+
+        {% if introduction and introduction.body %}
+          <div class="mt-8 text-base/7 font-extralight prose prose-invert text-white font-noto">
+            {{ introduction.body | markdown | safe }}
+          </div>
+        {% endif %}
       </div>
     </section>
   </div>

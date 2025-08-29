@@ -179,6 +179,7 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+
           - label: "Hero Section"
             name: "hero"
             widget: "object"
@@ -198,6 +199,7 @@ collections:
                   - { label: "Text", name: "text", widget: "string" }
                   - { label: "URL", name: "url", widget: "string" }
                   - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary"] }
+
           - label: "Pricing Tables"
             name: "pricingTables"
             widget: "list"
@@ -261,6 +263,7 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string", required: false }
           # - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+
           - label: "Menu"
             name: "menu"
             widget: "object"
@@ -279,6 +282,83 @@ collections:
               - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
               - { label: "External URL", name: "url", widget: "string", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+              
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "SVG Title", name: "svgTitle", widget: "string", required: false }
+              - { label: "Introduction", name: "introduction", widget: "text" }
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "Image URL", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary"] }
+
+          - label: "Introduction"
+            name: "introduction"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Title (H2, for screen readers)", name: "title", widget: "string", required: false, hint: "Shown to assistive tech. Hidden visually." }
+              - { label: "Lead", name: "lead", widget: "markdown", minimal: true, hint: "Short opener. Supports Markdown." }
+              - { label: "Body", name: "body", widget: "markdown", hint: "Main text. Supports Markdown." }
+
+          - label: "First Climb Checklist"
+            name: "list"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "markdown" }
+              
+              - label: "Checklist"
+                name: "checklist"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+                  - { label: "URL", name: "url", widget: "string", required: false }
+                  - { label: "Button Text", name: "button-text", widget: "string", required: false }
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "Image URL", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+
+          - label: "Waiver"
+            name: "waiver"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "markdown" }
+              - { label: "Body", name: "body", widget: "markdown" }
+              - label: "Video"
+                name: "video"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "External video URL (YouTube/Vimeo)", name: "external_url", widget: "string", required: false }
+                  - { label: "MP4 file (self-hosted)", name: "mp4", widget: "file", required: false }
+                  - { label: "Poster image", name: "poster", widget: "image", required: false }
+                  - { label: "Caption / transcript", name: "transcript", widget: "text", required: false }
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary"] }
 
       - label: "Membership"
         name: "membership"

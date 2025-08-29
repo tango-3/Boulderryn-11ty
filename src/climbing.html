@@ -1,8 +1,34 @@
 ---
-layout: default
-title: Climbing - Everything you need to know before you visit Boulderryn Indoor Climbing, Penryn & Falmouth
+waiver:
+  title: Sign Before You Climb
+  lead: >
+    Before you can get on the wall, we'll need a waiver signed, it only takes a
+    minute and covers the key safety stuff.   If it's your first visit, there's
+    a **one-time £3 registration fee**.   Bringing little ones? They need to be
+    over 5, have a waiver signed by a parent or guardian, and be supervised
+    **(one adult per two kids)**.
+  body: >
+    Make sure you've watched the video below before signing. If you're unsure
+    about anything, feel free to get in touch.
+  video:
+    external_url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    mp4: ""
+    poster: ""
+    transcript: ""
+  buttons:
+    - text: Sign the Waiver
+      url: /waiver/
+      style: primary
+    - text: View Prices
+      url: /prices/
+      style: secondary
 path: climbing
-description: Climbing - Got a question about climbing, sessions or memberships? Reach out to Boulderryn Falmouth and Penryn's only indoor bouldering space. We're here to help.
+layout: default
+title: Climbing - Everything you need to know before you visit Boulderryn Indoor
+  Climbing, Penryn & Falmouth
+description: Climbing - Got a question about climbing, sessions or memberships?
+  Reach out to Boulderryn Falmouth and Penryn's only indoor bouldering space.
+  We're here to help.
 menu:
   title: Climbing
   order: 5
@@ -10,22 +36,71 @@ menu:
 hero:
   svgTitle: /static/svg/climbing.svg
   introduction: >
-    Whether you're brand new to bouldering or just new to BoulderRYN, this page has everything you need to know before your first session. From what to bring and how it works, to signing your waiver and booking an induction, consider it your pre-climb briefing. No pressure, no ropes, just good vibes and soft landings.
+    Whether you're brand new to bouldering or just new to BoulderRYN, this page
+    has everything you need to know before your first session. From what to
+    bring and how it works, to signing your waiver and booking an induction,
+    consider it your pre-climb briefing. No pressure, no ropes, just good vibes
+    and soft landings.
   image:
-    src: /static/img/BoulderRyn-14.jpg
+    src: /static/img/BoulderRyn-10.jpg
+    alt: Climbers on the overhang wall at Boulderryn
+
+introduction:
+  title: >
+    What is bouldering - Bouldering is climbing in its purest form: short climbs, soft mats, and endless challenges to keep you coming back.
+  lead: >
+    Bouldering is a style of climbing done on shorter walls or rock, without ropes or harnesses, with thick mats below for safety. Instead of long climbs, you take on shorter, more technical “problems” - set routes you try to solve from start to finish.
+  body: |
+    It's as much about balance, movement, and problem-solving as it is about strength, so you don't need to be a seasoned athlete to enjoy it. Routes are graded so there's something for every ability, from complete beginners to experienced climbers.
+
+    Indoors, you'll find colour-coded holds and routes that are changed regularly to keep things fresh. Outdoors, it's about the feel of real rock and the challenge of natural shapes.
+
+    Because there's no ropework involved, bouldering is easy to pick up, sociable, and great for fitting into a busy day - whether you're after a serious training session or just a good excuse to get moving.
+
+list:
+  title: Your First Climb
+  intro: >
+    New to climbing? No stress. We've made it super easy to get started. Whether
+    you're stepping onto the mats for the first time or just new to Boulderryn,
+    here's everything you need to know before your first session.
+  checklist:
+    - label: Sign the waiver
+      text: Before you climb, we'll need a quick waiver signed. Do it online in
+        advance to save time when you arrive.
+      url: /waiver/
+      buttonText: null
+    - label: Climbing tips for first-timers
+      text: We've got friendly staff, easy routes to get you started, and all the gear
+        you need. No experience? No problem — we'll show you the ropes (well…
+        not literally).
+    - label: Book an induction
+      text: New to bouldering? Join one of our relaxed induction sessions. We'll walk
+        you through the basics, help you get confident on the wall, and answer
+        any questions.
+    - label: Become a member
+      text: If you're coming back for more (and we reckon you will), grab a 10-pass or
+        monthly membership for the best value.
+      url: /membership/
+      button-text: null
+  image:
+    src: /static/img/BoulderRyn-15.jpg
     alt: Climbers on the overhang wall at Boulderryn
 ---
 
 {% include "partials/navbar.html" %}
 <!-- Partical wrapper -->
-<div class="min-h-screen overflow-y-auto overscroll-x-none">
+<div class="">
 <div class="particles-container " id="particles-container"></div>
 
 {% include "partials/hero.html" %}
 
 {% include "partials/introduction.html" %}
 
-{% include "partials/details.html" %}
+{% include "partials/list.html" %}
+
+{% include "partials/waivers-cta.html" %}
+
+{% include "partials/faq-cta.html" %}
 
 {% include "partials/opening-times.html" %}
 

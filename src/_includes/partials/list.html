@@ -1,0 +1,55 @@
+<div class="overflow-hidden bg-black py-24 sm:py-32 font-noto">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+      <div class="lg:pr-8 lg:pt-4">
+        <div class="lg:max-w-lg">
+          <div class="">
+            <h2 class="sr-only">{{ list.title }}</h2>
+            <img
+              src="/static/svg/first-climb.svg"
+              alt=""
+              class="w-full"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="mt-6 text-xl/8 font-extralight prose prose-invert text-white font-noto">
+            {{ list.intro | markdown | safe }}
+          </div>
+          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-white lg:max-w-none">
+            {% for item in list.checklist %}
+            <div class="relative pl-9">
+              <dt class="inline font-bold text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute left-1 top-1 size-5 text-primary">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                </svg>
+
+                {{ item.label }}
+              </dt>
+              <dd class="inline pl-2">{{ item.text }}</dd>
+              {% if item.url %}
+              <div class="pt-3">
+                <a href="{{ item.url }}" class="btn btn-secondary btn-sm">
+                  {{ item.buttonText if item.buttonText else item.label }}
+                </a>
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </dl>
+        </div>
+      </div>
+      {% if list.image %}
+        <div class="aspect-[9/16] object-center">
+          {% nlImage {
+            src: list.image.src,
+            alt: list.image.alt,
+            widths: [640, 1024, 1440],
+            sizes: "100vw",
+            className: "w-[48rem] max-w-none shadow-xl ring-1 ring-white/10 sm:w-[57rem] md:-ml-4 lg:-ml-0",
+            loading: "lazy"
+          } %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
