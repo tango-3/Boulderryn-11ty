@@ -133,9 +133,15 @@
         <p class="text-sm leading-6 text-white">
             &copy; {{ "" | year }} {{ site.core.name }}. All rights reserved.
         </p>
-        <a href="{{ site.social.instagram }}">
+        <div class="flex gap-4 items-center">
+          <a href="{{ site.social.instagram }}" class="inline-flex items-center focus:outline-none focus:ring-2 focus:ring-primary rounded">
             <img src="/static/svg/insta-icon.svg" alt="Instagram" class="w-6 h-6">
-        </a>
+          </a>
+          <div class="text-xs text-white/50 hover:text-white font-light font-noto flex gap-1 items-center">
+            Site by
+            <a href="https://tango3.co.uk" title="designed and built by tango3" class="underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"><img src="/static/svg/t3-logo.svg" alt="" aria-hidden="true" fetchpriority="high" decoding="async" class="block w-auto h-7 object-contain" /></a>
+          </div>
+        </div>
     </div>
   </div>
 </footer>
