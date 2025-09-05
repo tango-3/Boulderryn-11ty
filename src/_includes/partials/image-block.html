@@ -1,0 +1,95 @@
+{% if imageBlock %}
+<div class="overflow-hidden sm:py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
+      
+      {% if imageBlock.icon %}
+      <div class="order-last sm:order-first lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8" data-aos="fade-right">
+        {% if imageBlock.icon.title %}
+          <h2 class="sr-only">{{ imageBlock.icon.title }}</h2>
+        {% endif %}
+        {% if imageBlock.icon.src %}
+          <img
+            src="{{ imageBlock.icon.src | url }}"
+            alt="{{ imageBlock.icon.alt or '' }}"
+            class="w-full"
+            aria-hidden="true"
+            loading="lazy"
+            width="1200" height="300"
+          />
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
+
+        {% if imageBlock.images and imageBlock.images.large and imageBlock.images.large.src %}
+        <div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
+          {% nlImage {
+            src: imageBlock.images.large.src,
+            alt: imageBlock.images.large.alt | default(""),
+            widths: [640, 1024, 1440],
+            sizes: "(min-width: 1024px) 42rem, 100vw",
+            className: "aspect-[7/5] w-[37rem] max-w-none bg-gray-800 object-cover sm:w-[42rem]",
+            loading: "lazy"
+          } %}
+        </div>
+        {% endif %}
+
+        <div class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
+
+          {% if imageBlock.images and imageBlock.images.mid and imageBlock.images.mid.src %}
+          <div class="order-first flex w-64 flex-none justify-end self-end sm:w-40 lg:w-auto">
+            {% nlImage {
+              src: imageBlock.images.mid.src,
+              alt: imageBlock.images.mid.alt | default(""),
+              widths: [480, 768, 896],
+              sizes: "(min-width: 1024px) 24rem, 100vw",
+              className: "aspect-[4/3] w-[24rem] max-w-none flex-none bg-gray-800 object-cover",
+              loading: "lazy"
+            } %}
+          </div>
+          {% endif %}
+
+          {% if imageBlock.images and imageBlock.images.tall and imageBlock.images.tall.src %}
+          <div class="flex w-96 flex-auto justify-end sm:hidden lg:block lg:w-auto lg:flex-none">
+            {% nlImage {
+              src: imageBlock.images.tall.src,
+              alt: imageBlock.images.tall.alt | default(""),
+              widths: [640, 1024, 1440],
+              sizes: "(min-width: 1024px) 37rem, 100vw",
+              className: "aspect-[7/5] w-[37rem] max-w-none flex-none bg-gray-800 object-cover sm:w-[30rem]",
+              loading: "lazy"
+            } %}
+          </div>
+          {% endif %}
+
+          <div class="sm:block sm:flex-auto lg:w-auto lg:flex-none">
+            <div class="flex w-full flex-col lg:w-[24rem]">
+              <div class=" font-noto">
+
+                {% if imageBlock.body %}
+                <div class="prose prose-invert text-white">
+                  {{ imageBlock.body | markdown | safe }}
+                </div>
+                {% endif %}
+
+                {% if imageBlock.button and imageBlock.button.url and imageBlock.button.text %}
+                {% set btnClass = "btn btn-primary" %}
+                {% if imageBlock.button.style == "secondary" %}
+                  {% set btnClass = "btn btn-secondary" %}
+                {% endif %}
+                <div class="pt-8 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+                  <a href="{{ imageBlock.button.url | url }}" class="{{ btnClass }}">{{ imageBlock.button.text }}</a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+{% endif %}

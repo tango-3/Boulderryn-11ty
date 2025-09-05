@@ -1,0 +1,47 @@
+<div class="overflow-hidden  py-12 sm:py-22">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <section class=" sm:mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+      <div class="mb-4 sm:mb-10 text-white lg:pr-8 font-noto prose prose-invert -mt-8">
+        {# introduction lead (WYSIWYG/Markdown) #}
+        <div class="text-xl/8 font-extralight text-pretty">
+          {% if introduction and introduction.lead %}
+            {{ introduction.lead | markdown | safe }}
+          {% endif %}
+        </div>
+
+        {# introduction body (WYSIWYG/Markdown) #}
+        <div class="mt-8 text-base/7 text-pretty">
+          {% if introduction and introduction.body %}
+            {{ introduction.body | markdown | safe }}
+          {% endif %}
+        </div>
+        <div class="pt-3 lg:mr-4 xl:mr-auto flex flex-wrap sm:flex-row justify-start gap-x-8 gap-y-4">
+          {% if introduction and introduction.buttons and introduction.buttons | length > 0 %}
+            {% for btn in introduction.buttons %}
+              {% if loop.index0 < 2 %}
+                {% set style = 'btn-primary' %}
+                {% if btn.style and (btn.style | lower) == 'secondary' %}
+                  {% set style = 'btn-secondary' %}
+                {% endif %}
+                <a href="{{ btn.url | url }}" class="btn {{ style }} ">{{ btn.text }}</a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="lg:row-span-2 lg:-mr-8 xl:mr-auto">
+        <div class=" sm:-mx-8 lg:mx-0">
+          <div class="" data-aos="fade-left">
+            {% if introduction and introduction.title %}
+              <h2 class="sr-only">{{ introduction.title }}</h2>
+            {% endif %}
+            {% if introduction and introduction.svgTitle %}
+              <img src="{{ introduction.svgTitle | url }}" alt="" class="w-full" aria-hidden="true" />
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+---
+path: about
+layout: default
+title: About - Our Roots and Routes
+description: Learn about the story behind BoulderRyn — how it all started, who's
+  behind it, and why it's about more than just climbing.
+menu:
+  title: About
+  order: 6
+  location: primary
+hero:
+  svgTitle: /static/svg/about.svg
+  introduction: >
+    BoulderRyn is built on a love of movement, community, and the outdoors. Meet
+    the team behind the wall and find out how it all began, from our roots to
+    your routes.
+  image:
+    src: /static/img/BoulderRyn-12.jpg
+    alt: Climbers on the overhang wall at BouldeRryn
+introduction:
+  title: More than just a climb
+  svgTitle: /static/svg/more-than-a-climb.svg
+  lead: >
+    For us, climbing has always been about more than the moves. It's about
+    shared effort, quiet progress, and a community that's got your back.
+  body: >
+    At BoulderRyn, we've created a space that brings people together, whether
+    you're here to hit the wall hard, hang out, or just try something new.     
+  buttons:
+    - text: Our Ethos
+      url: /climbing
+      style: primary
+featureBlock:
+  icon:
+    title: Team BoulderRyn
+    src: /static/svg/team.svg
+    alt: Team BoulderRyn - meet the people behind the wall
+  lead: >
+    Jules and Guy have travelled most of their lives, both sharing a love of the
+    outdoors.
+  body: >
+    Guy has spent the last decade being a stunt rigger on major Hollywood films,
+    but climbing has always been a lifelong passion. 
+
+
+    Jules has been a teacher in the local community for 20 years.
+
+
+    Combining Guy's passion for climbing and Jules's passion for working with the community, the idea of BoulderRyn was born.
+
+
+    Our mission is to enable and inspire the community: 'climb indoors to climb outdoors'.
+
+
+    **'Inspiring Boulders, Inspiring Climbing, Inspiring Community'**
+  buttons:
+    - text: Join Now
+      url: /prices/
+      style: primary
+    - text: Learn More
+      url: /climbing/
+      style: secondary
+  image:
+    src: /static/img/jules-and-guy.png
+    alt: Guy McDonald & Julia McDonald / Duggan
+imageBlock:
+  icon:
+    title: First hold to top out.
+    src: /static/svg/first-hold.svg
+    alt: First hold to top out.
+  body: >
+    Whether it's your first time on the wall or you're pushing for your next
+    personal best, we've got the routes, coaching, and community to help you
+    grow.
+
+
+    We're here for the nervous first hold, the send that makes your week, and everything in between.
+  button:
+    text: Climbing
+    url: /climbing/
+    style: primary
+  images:
+    large:
+      src: /static/img/BoulderRyn-18.jpg
+      alt: Group of climbers watching a friend on the wall
+    mid:
+      src: /static/img/BoulderRyn-6.jpg
+      alt: Climber reaching for a hold on an overhang
+    tall:
+      src: /static/img/BoulderRyn-8.jpg
+      alt: Climber navigating a tall route on the wall
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/hero.html" %}
+{% include "partials/introduction-alt.html" %}
+{% include "partials/feature-block.html" %}
+{% include "partials/image-block.html" %}
+
+{% include "partials/opening-times.html" %}
+{% include "partials/location.html" %}
+
+{% include "partials/footer.html" %}
+</div>
