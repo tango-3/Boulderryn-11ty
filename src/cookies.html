@@ -1,0 +1,83 @@
+---
+layout: default
+title: Cookies
+path: cookies
+description: >
+  How and why we use cookies on this site, including the types of cookies we set and how you can manage them.
+menu:
+  title: Cookies
+  order: 1
+  location: secondary
+hero:
+  introduction: >
+    We use cookies to make our site work properly and help us improve it. Here’s what they do, how we use them, and how you can manage your settings.
+  image:
+    src: /static/img/BoulderRyn-9.jpg
+    alt: Climbers on the overhang wall at BoulderRyn
+
+body: >
+  ## Cookie Policy
+
+  This Cookie Policy explains how BoulderRyn uses cookies and similar technologies to recognise you when you visit our website at **boulderryn.co.uk**. It explains what these technologies are, why we use them, and your rights to control their use.
+
+  ### What are cookies?
+
+  Cookies are small text files that are stored on your device when you visit a website. They help websites work more efficiently and can provide information to site owners about how the site is being used.
+
+  Cookies can be "session" cookies (which expire when you close your browser) or "persistent" cookies (which stay on your device for a set period or until deleted).
+
+  ### Why we use cookies
+
+  We use cookies for a few key reasons:
+
+  - **Essential cookies**: These are needed to make the website function properly. You can't turn these off.
+  - **Analytics cookies**: These help us understand how people use the site, so we can improve things.
+  - **Functionality cookies**: These remember choices you’ve made (like your preferences or login), so you don’t have to keep re-entering them.
+  - **Third-party cookies**: Some of our pages may include content or features from third parties (like embedded maps or videos), which may set their own cookies.
+
+  ### Cookies we use
+
+  Here are the main cookies you might encounter on our site:
+
+  - `_ga`, `_gid`: Set by Google Analytics. These help us understand how people use the site. No personally identifiable data is collected.
+  - `cookieConsent`: Remembers if you’ve accepted cookies.
+
+  We may update this list from time to time as we add or remove tools.
+
+  ### Managing your cookie preferences
+
+  You can usually manage cookies through your browser settings. You can:
+
+  - Delete all cookies
+  - Block certain types of cookies
+  - Set your browser to ask before accepting a cookie
+
+  Please note that blocking some cookies may affect how the site functions.
+
+  ### Changes to this policy
+
+  We may update this Cookie Policy from time to time. When we do, we’ll post the updated version here and update the “Last updated” date.
+
+  **Last updated:** 5 September 2025
+
+  ### Need help?
+
+  If you have any questions about our use of cookies, drop us a message through our [Contact page](/contact/).
+
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/simple-hero.html" %}
+
+{% if body %}
+  <div class="mx-auto max-w-3xl px-6 py-20 text-base leading-relaxed text-white font-noto prose prose-invert prose-a:text-white hover:prose-a:text-primary">
+    {{ body | markdown | safe }}
+  </div>
+{% endif %}
+
+{% include "partials/footer.html" %}
+</div>

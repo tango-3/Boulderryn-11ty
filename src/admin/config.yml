@@ -695,6 +695,32 @@ collections:
                   - { label: "Text", name: "text", widget: "string" }
                   - { label: "URL", name: "url", widget: "string" }
                   - { label: "Style", name: "style", widget: "select", options: ["primary", "secondary"] }
+      - name: cookies
+        label: Cookies Policy
+        file: src/cookies.html
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description ", name: "description", widget: markdown", required: false }
+          # - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Menu title (optional)", name: "title", widget: "string", required: false }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options:
+                  - { label: "Primary", value: "primary" }
+                  - { label: "Secondary", value: "secondary" }
+                  - { label: "None", value: "none" }
+                default: "primary"
+              - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+              - { label: "External link?", name: "external", widget: "boolean", default: false, required: false }
+              - { label: "External URL", name: "url", widget: "string", required: false }
+              - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
+          - { label: Body Content, name: body, widget: markdown }
 
   # --- Blog posts ---
   - label: "Blog"
@@ -805,3 +831,10 @@ collections:
             required: false
             hint: "Short note shown next to 'Bank Holidays'"
             default: "Check socials or give us a shout, times may vary."
+      - label: "Announcement"
+        name: "site_announcement"
+        file: "src/_data/site/announcement.yml"
+        fields:
+          - { label: "Display Announcement", name: "display", widget: "boolean", default: false, required: false,}
+          # - { label: "End Date", name: "endDate", widget: "datetime", required: false, hint: "After this date the message will not show." }
+          - { label: "Message", name: "message", widget: "string" }

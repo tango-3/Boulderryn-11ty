@@ -1,0 +1,15 @@
+<div class="relative isolate overflow-hidden bg-primary pt-24 sm:pt-36 pb-16 sm:pb-20">
+  <img src="/static/img/BoulderRyn-12.jpg" alt="" class="absolute inset-0 -z-10 size-full object-cover" />
+  <div class="absolute inset-0 -z-10 bg-black/70"></div>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2 class="text-5xl font-semibold tracking-tight text-primary sm:text-9xl font-flama uppercase max-w-sm sm:leading-[.9em]">{{ title }}</h2>
+      {% if description %}
+        <div class="mt-8 text-pretty text-lg font-light text-white sm:text-xl/8 font-noto prose prose-invert prose-a:text-white hover:prose-a:text-primary">
+          {{ description | markdown | safe }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
