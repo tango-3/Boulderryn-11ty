@@ -536,7 +536,6 @@ collections:
               - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
               - { label: "Hide from menus", name: "hide", widget: "boolean", default: false, required: false }
 
-
       - label: "Multi-Pass"
         name: "multi_pass"
         file: "src/multi-pass.html"
