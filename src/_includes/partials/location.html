@@ -28,12 +28,12 @@
 
 <section class="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-2 pt-32 gap-8">
   <!-- Left: Map -->
-  <div class="flex items-center justify-center px-8 md:justify-end md:px-8">
+  <div class="flex items-center justify-center px-8 md:justify-end md:px-8 overflow-hidden">
     <div>
       {% if embedSrc %}
         <div class="aspect-[9/16]">
           <iframe
-            class="block sm:w-full h-full"
+            class="block w-full h-full max-w-full"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
             title="Map. {{ name }}"
