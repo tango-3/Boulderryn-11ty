@@ -1,0 +1,33 @@
+---
+layout: default
+title: Membership
+path: membership
+description: >
+  Joining BoulderRyn is easy. Whether you're a rock-god or just getting started, membership is the cheapest way to regularly hit the wall.
+menu:
+  title: Membership
+  order: 1
+  location: secondary
+  hide: true
+hero:
+  image:
+    src: /static/img/BoulderRyn-9.jpg
+    alt: Climbers on the overhang wall at BoulderRyn
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/simple-hero.html" %}
+
+<section class="pt-12 bg-white px-6">
+
+    {% if site.core.membershipEmbed %}
+    <iframe style="width:100%;height:100%;" class="min-h-screen" src="{{ site.core.membershipEmbed }}" frameBorder="0" allow="accelerometer"></iframe>
+    {% endif %}
+
+</section>
+{% include "partials/footer.html" %}
+</div>

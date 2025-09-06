@@ -756,6 +756,27 @@ collections:
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string", required: true }
           - { label: "Tagline", name: "siteTagline", widget: "string", required: false }
+          - label: "Booking Enabled"
+            name: "bookingEnabled"
+            widget: "boolean"
+            required: false
+            default: true
+            hint: "If disabled, booking-related buttons and links will be hidden."
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - label: "Buttondown"
+            name: "buttondown"
+            widget: "object"
+            hint: "username of the 'in the loop' email marketing form"
+            fields:
+              - { label: "Username", name: "username", widget: "string", required: false }
+          - { label: "Waiver Embed URL", name: "waverEmbed", widget: "text", required: false, hint: "Full embed URL for waiver video widget." }
+          - label: "Google Analytics"
+            name: "googleAnalytics"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Enable Google Analytics", name: "enabled", widget: "boolean", default: false, required: false }
+              - { label: "Measurement ID (G-XXXXXXX)", name: "measurementId", widget: "string", required: false, hint: "e.g. G-XXXXXXXXXX" }
 
       - label: "SEO"
         name: "site_seo"

@@ -1,0 +1,37 @@
+---
+layout: default
+title: Single Entry
+path: single-entry
+description: >
+  Want to climb without commitment? Grab a one-off entry and hit the wall on your own terms. Fast, simple, no strings.
+menu:
+  title: Single Entry
+  order: 3
+  location: secondary
+  hide: true
+
+hero:
+  title: Pay & Climb
+  introduction: >
+    Just want to climb? No problem. Buy a single entry pass online and you’re good to go. No sign-up, no commitment, just fun on the wall.
+  image:
+    src: /static/img/BoulderRyn-9.jpg
+    alt: Overhang wall at BoulderRyn
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/simple-hero.html" %}
+
+<section class="pt-12 bg-white px-6">
+
+    {% if site.core.singleEntryEmbed %}
+    <iframe style="width:100%;height:100%;" class="min-h-screen" src="{{ site.core.singleEntryEmbed }}" frameBorder="0" allow="accelerometer"></iframe>
+    {% endif %}
+
+</section>
+{% include "partials/footer.html" %}
+</div>

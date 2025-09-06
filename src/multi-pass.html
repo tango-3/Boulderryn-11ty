@@ -1,0 +1,37 @@
+---
+layout: default
+title: Multi-Pass
+path: multi-pass
+description: >
+  Climb more, pay less. Our 10-climb Multi-Pass is the best value if you're coming regularly — buy 9, get 1 free.
+menu:
+  title: Multi-Pass
+  order: 2
+  location: secondary
+  hide: true
+
+hero:
+  title: Climb More, Pay Less
+  introduction: >
+    The more you climb, the more you save. Grab a 10-climb Multi-Pass and get your 10th session on us. No contract, just better value.
+  image:
+    src: /static/img/BoulderRyn-9.jpg
+    alt: Climbers on the overhang wall at BoulderRyn
+---
+
+{% include "partials/navbar.html" %}
+<!-- Partical wrapper -->
+<div class="">
+<div class="particles-container " id="particles-container"></div>
+
+{% include "partials/simple-hero.html" %}
+
+<section class="pt-12 bg-white px-6">
+
+    {% if site.core.multiPassEmbed %}
+    <iframe style="width:100%;height:100%;" class="min-h-screen" src="{{ site.core.multiPassEmbed }}" frameBorder="0" allow="accelerometer"></iframe>
+    {% endif %}
+
+</section>
+{% include "partials/footer.html" %}
+</div>

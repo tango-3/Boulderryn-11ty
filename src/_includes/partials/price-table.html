@@ -10,7 +10,7 @@
           <p class="text-primary mt-2 italic font-bold text-xs">{{ table.note }}</p>
         {% endif %}
       </div>
-      {% if table.button %}
+      {% if table.button and site.core.bookingEnabled %}
         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
           <a href="{{ table.button.url }}" class="btn btn-primary">{{ table.button.label }}</a>
         </div>

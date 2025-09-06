@@ -57,8 +57,9 @@
 
           <!-- Primary nav -->
           <div>
-            <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">Navigation</h3>
-            <h3 class="sr-only">Main navigation</h3>
+            <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">
+              Main Navigation <span class="sr-only">(Primary links)</span>
+            </h3>
             <ul role="list" class="mt-6 space-y-4 uppercase">
               {% for item in collections.primaryNav %}
                 {% set isActive = item.url | isCurrentUrl(page.url) %}
@@ -76,7 +77,9 @@
 
           <!-- Secondary nav -->
           <div class="mt-10 md:mt-0">
-            <h3 class="sr-only">Secondary navigation</h3>
+            <h3 class="text-lg leading-6 font-bold text-primary uppercase font-flama">
+              Navigation <span class="sr-only">(Secondary links)</span>
+            </h3>
             {% if collections.secondaryNav and collections.secondaryNav | length %}
               <ul role="list" class="mt-6 space-y-4 uppercase">
                 {% for item in collections.secondaryNav %}

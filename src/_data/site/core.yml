@@ -1,19 +1,22 @@
-name: BoulderRyn
-author: Tango3 Ltd.
-url: "https://tango3.co.uk"
-
-instagram: "https://www.instagram.com/boulderryn/"
-
-buttondown:
-  username: "boulderryn"
-  
-siteTitle: "BoulderRyn"
-siteTagline: "Penryn & Falmouth's only indoor bouldering space"
-
-bookURL: /book/
-
 waverEmbed: >
   https://widgets.sendmoregetbeta.com/13413/document?videoURL=-r2zbi21aks&disallowSeek=false&hideHeader=false
-
-
-bookingEmbed: >
+bookingEmbed: ""
+bookURL: /book/
+siteTitle: BoulderRyn
+siteTagline: Penryn & Falmouth's only indoor bouldering space
+bookingEnabled: false
+author: Tango3 Ltd.
+name: BoulderRyn
+url: https://tango3.co.uk
+instagram: https://www.instagram.com/boulderryn/
+buttondown:
+  username: boulderryn
+googleAnalytics:
+  enabled: true
+  measurementId: "G-S0652QWSCZ"
+membershipEmbed: >
+  https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
+singleEntryEmbed: >
+  https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
+multiPassEmbed: >
+  https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
