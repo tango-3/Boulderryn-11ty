@@ -2,15 +2,25 @@
 <html lang="en">
   <head>
     {% if site.core.googleAnalytics and site.core.googleAnalytics.enabled and site.core.googleAnalytics.measurementId %}
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.core.googleAnalytics.measurementId }}"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <script>
+      function loadGA() {
+        const script = document.createElement('script');
+        script.setAttribute('async', '');
+        script.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id={{ site.core.googleAnalytics.measurementId }}');
+        document.head.appendChild(script);
 
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+
+        gtag('js', new Date());
         gtag('config', '{{ site.core.googleAnalytics.measurementId }}');
-      </script>
+      }
+
+      if (localStorage.getItem('cookieConsent')) {
+        loadGA();
+      }
+    </script>
     {% endif %}
 
     <meta charset="UTF-8">
@@ -85,7 +95,7 @@
   <body>
 
     {{ content | safe }}
-
+    {% include "partials/cookie-banner.html" %}
 
 
     <!-- <script src="/static/js/alpine.js"></script> -->
@@ -108,6 +118,29 @@
           duration: 800,
           once: true,
           offset: 100,
+        });
+      });
+    </script>s
+    <!-- Cookie JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const rejectBtn = document.getElementById('reject-cookies');
+
+        if (!localStorage.getItem('cookieConsent')) {
+          banner.style.display = 'block';
+        }
+
+        acceptBtn?.addEventListener('click', () => {
+          localStorage.setItem('cookieConsent', 'true');
+          banner.style.display = 'none';
+          if (typeof loadGA === 'function') loadGA();
+        });
+
+        rejectBtn?.addEventListener('click', () => {
+          localStorage.setItem('cookieConsent', 'false');
+          banner.style.display = 'none';
         });
       });
     </script>
