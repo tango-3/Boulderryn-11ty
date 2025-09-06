@@ -3,7 +3,9 @@ backend:
   name: git-gateway
   repo: tango-3/Boulderryn-11ty
   # branch: master
-  branch: phase-1
+  branch: main
+  logo_url: /static/svg/boulderryn-logo.svg
+
 
   ### enable below lines for github integration ###
   # name: github
