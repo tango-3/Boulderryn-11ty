@@ -26,7 +26,7 @@
     + "&maptype=roadmap" %}
 {% endif %}
 
-<section class="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-2 pt-32 gap-8 overflow-hidden">
+<section class="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-2 pt-32 gap-8 overflow-y-hidden ">
   <!-- Left: Map -->
   <div class="flex items-center justify-center sm:px-8 md:justify-end md:px-8 ">
     <div>
@@ -52,7 +52,7 @@
 
   <!-- Right: Content -->
   <div class="flex items-start px-8 md:px-8 mx-auto">
-    <div class="max-w-md w-full" >
+    <div class="sm:max-w-md w-full" >
       <h2 class="sr-only" >{{ loc.name }}</h2>
       <img src="/static/svg/plan-your-route.svg" alt="" class="w-full" aria-hidden="true" loading="lazy" width="1200" height="300" data-aos="fade-left"/>
 
@@ -76,7 +76,7 @@
         </div>
       {% endif %}
 
-      <div class="mt-10 space-y-6">
+      <div class="mt-10 space-y-6 ">
         {% if loc.button %}
           {% for btn in loc.button %}
             {% set btnClass = "" %}
@@ -91,7 +91,7 @@
 
       </div>
       {% if site.location.what3words %}
-      <div class="mt-8 space-y-6"></div>
+      <div class="mt-8 space-y-6 pb-4">
         <a href="https://w3w.co/{{ site.location.what3words }}" target="_blank" rel="noopener" class="btn btn-secondary">
           What 3 Words
         </a>
