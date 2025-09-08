@@ -53,7 +53,7 @@
     <link rel="preload" as="image" href="{{ hero.image.src }}" fetchpriority="high">
     {% endif %}
     {% if page.url == '/' or path == 'home' %}
-    <link rel="preload" as="image" href="/static/img/hands-in-chalk.png" fetchpriority="high">
+    <link rel="preload" as="image" href="/static/img/hands-in-chalk.webp" fetchpriority="high">
     {% endif %}
 
     <!-- Favicon & Manifest -->
@@ -92,7 +92,7 @@
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" media="all" href="/static/css/style.css">
     <link rel="stylesheet" media="all" href="/static/css/gradient-hero.css">
-    <link media="all" href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
   </head>
   <body>
