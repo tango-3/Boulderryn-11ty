@@ -1,8 +1,8 @@
 {% if site.announcement and site.announcement.display %}
-  <div id="announcementBanner" class="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center  z-50 max-w-screen w-full">
+  <div id="announcementBanner" class="pointer-events-none fixed inset-x-0 bottom-0 sm:bottom-5 sm:flex sm:justify-center  z-50 max-w-screen w-full">
     <div class="sm:px-6 sm:pb-5 lg:px-8 pointer-events-auto flex items-center justify-between gap-x-6 bg-pink-800 px-6 py-2.5 ring-1 ring-inset ring-primary/10 sm:py-3 sm:pl-4 sm:pr-3.5">
       <p class="text-xl/6 text-white font-noto">
-        {{ site.announcement.message }}
+        {{ site.announcement.message | safe }}
       </p>
       <button type="button" onclick="document.getElementById('announcementBanner').remove()" class="-m-1.5 flex-none p-1.5">
         <span class="sr-only">Dismiss</span>
