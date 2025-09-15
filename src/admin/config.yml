@@ -215,6 +215,12 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text", required: false }
               - { label: "Note", name: "note", widget: "string", required: false }
+              - label: "Enable Button (override)"
+                name: "buttonEnabled"
+                widget: "boolean"
+                required: false
+                default: false
+                hint: "Show this table's button even if global Booking is disabled."
               - label: "Button"
                 name: "button"
                 widget: "object"
