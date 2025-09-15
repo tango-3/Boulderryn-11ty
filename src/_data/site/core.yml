@@ -15,8 +15,9 @@ googleAnalytics:
   enabled: true
   measurementId: "G-S0652QWSCZ"
 membershipEmbed: >
-  https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
+  https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314%2C76045%2C76043%2C76055&hideHeader=false
 singleEntryEmbed: >
   https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
 multiPassEmbed: >
   https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
+rollingMonthlyEmbed: >

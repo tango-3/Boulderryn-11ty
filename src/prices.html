@@ -108,18 +108,53 @@ pricingTables:
           Monthly payment by Direct Debit
         prices:
           - £35
-          - £35
+          - £30
       - label: Concession / Student / U18 - Annual
         subtext: Over 60's, NHS Staff / Blue Light Card holders, Military, and Students.
           Annual Payment
         prices:
           - £385
           - £330
-      - label: U16 Month Pass
+      - label: Family monthly membership
+        subtext: 2 adults 2 kids, £10 per additional child
+        prices:
+          - £85
+          - £65
+
+  - title: Rolling Monthly Membership
+    description: Unlimited access, ultimate flexability, pay for your membership from month to month.
+    note: Please bring a valid ID for discounts.
+    buttonEnabled: false
+    tableHeading: Rolling Access
+    button:
+      label: 
+      url:
+    headers:
+      - label: Peak
+        subtext: Monday to Friday from 4pm and weekends.
+      - label: Off Peak
+    rows:
+      - label: Adult (single month)
+        subtext: Unlimited access for one month
+        prices:
+          - £45
+          - £35
+      - label: Concession (single month)
+        subtext: Unlimited access for one month
+        prices:
+          - £38
+          - £33
+      - label: Family (single month)
+        subtext: Unlimited access for one month
+        prices:
+          - £90
+          - £70
+      - label: U16 (single month)
         subtext: Unlimited access for one month
         prices:
           - £35
-          - £35
+          - £25
+
 ---
 
 {% include "partials/navbar.html" %}
