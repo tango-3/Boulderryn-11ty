@@ -29,6 +29,20 @@ module.exports = function (eleventyConfig) {
     return DateTime.now().toFormat("yyyy");
   });
 
+  // W3C date for sitemap lastmod entries
+  eleventyConfig.addFilter("w3cDate", (dateObj) => {
+    if (!dateObj) return null;
+    const date = dateObj instanceof Date ? dateObj : new Date(dateObj);
+    if (!date || Number.isNaN(date.getTime())) return null;
+    return DateTime.fromJSDate(date, { zone: "utc" }).toISODate();
+  });
+
+  // Remove trailing slash from URLs when needed
+  eleventyConfig.addFilter("stripTrailingSlash", (url = "") => {
+    if (typeof url !== "string") return "";
+    return url.endsWith("/") ? url.slice(0, -1) : url;
+  });
+
   // Syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -158,6 +172,22 @@ module.exports = function (eleventyConfig) {
         return tags.includes("post") || tags.includes("posts");
       })
       .sort((a, b) => (b.date || 0) - (a.date || 0))
+  );
+
+  eleventyConfig.addCollection("sitemapPages", (collectionApi) =>
+    collectionApi
+      .getAll()
+      .filter((item) => {
+        const data = item.data || {};
+        if (data.draft === true) return false;
+        if (data.eleventyExcludeFromCollections === true) return false;
+        if (data.sitemap && data.sitemap.exclude === true) return false;
+        if (data.noindex === true) return false;
+        if (!item.url || !item.outputPath) return false;
+        if (item.url === "/404.html") return false;
+        if (item.url.startsWith("/admin")) return false;
+        return String(item.outputPath).endsWith(".html");
+      })
   );
 
   // --- Video embed URL normaliser (YouTube/Vimeo) ---
