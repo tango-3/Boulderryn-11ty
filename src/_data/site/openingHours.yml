@@ -1,8 +1,8 @@
 openingHours:
   - day: Monday
-    closed: true
-    open: ""
-    close: ""
+    closed: false
+    open: 10:00
+    close: 21:00
     notes: ""
   - day: Tuesday
     closed: false
