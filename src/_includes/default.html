@@ -103,7 +103,17 @@
 
     <!-- <script src="/static/js/alpine.js"></script> -->
     <!-- dust effect -->
-    <script src="/static/js/particles.js" defer></script>
+    <script>
+      const prefersTouch = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+      const narrowViewport = window.matchMedia('(max-width: 767px)').matches;
+
+      if (!(prefersTouch || narrowViewport)) {
+        const particlesScript = document.createElement('script');
+        particlesScript.src = '/static/js/particles.js';
+        particlesScript.defer = true;
+        document.head.appendChild(particlesScript);
+      }
+    </script>
 
     {% if path == "home" %}
       <!-- Netlify Identity Widget -->
