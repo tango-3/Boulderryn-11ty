@@ -813,7 +813,12 @@ collections:
             required: false
             default: true
             hint: "If disabled, booking-related buttons and links will be hidden."
+          - { label: "Booking Page URL", name: "bookURL", widget: "string", required: false, hint: "Path or URL used for booking links (e.g. /book/)." }
+          - { label: "Booking Embed URL", name: "bookingEmbed", widget: "text", required: false, hint: "Full embed URL for booking widget." }
           - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "Site Name (Footer)", name: "name", widget: "string", required: false, hint: "Displayed in footer copyright text." }
+          - { label: "Site Base URL", name: "url", widget: "string", required: false, hint: "Canonical site URL used for sitemap links." }
+          - { label: "Author", name: "author", widget: "string", required: false }
           - label: "Buttondown"
             name: "buttondown"
             widget: "object"
@@ -821,6 +826,10 @@ collections:
             fields:
               - { label: "Username", name: "username", widget: "string", required: false }
           - { label: "Waiver Embed URL", name: "waverEmbed", widget: "text", required: false, hint: "Full embed URL for waiver video widget." }
+          - { label: "Membership Embed URL", name: "membershipEmbed", widget: "text", required: false, hint: "Full embed URL for membership widget." }
+          - { label: "Single Entry Embed URL", name: "singleEntryEmbed", widget: "text", required: false, hint: "Full embed URL for single-entry passes widget." }
+          - { label: "Multi-Pass Embed URL", name: "multiPassEmbed", widget: "text", required: false, hint: "Full embed URL for multi-pass widget." }
+          - { label: "Rolling Monthly Embed URL", name: "rollingMonthlyEmbed", widget: "text", required: false, hint: "Full embed URL for rolling monthly membership widget." }
           - label: "Google Analytics"
             name: "googleAnalytics"
             widget: "object"

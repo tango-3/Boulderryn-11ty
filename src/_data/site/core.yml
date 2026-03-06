@@ -1,23 +1,23 @@
-waverEmbed: >
-  https://widgets.sendmoregetbeta.com/13413/document?videoURL=-r2zbi21aks&disallowSeek=false&hideHeader=false
-bookingEmbed: ""
-bookURL: /book/
 siteTitle: BoulderRyn
 siteTagline: Penryn & Falmouth's only indoor bouldering space
 bookingEnabled: false
-author: Tango3 Ltd.
+bookURL: /book/
+bookingEmbed: ""
+instagram: https://www.instagram.com/boulderryn/
 name: BoulderRyn
 url: https://boulderryn.co.uk/
-instagram: https://www.instagram.com/boulderryn/
+author: Tango3 Ltd.
 buttondown:
   username: boulderryn
-googleAnalytics:
-  enabled: true
-  measurementId: "G-S0652QWSCZ"
+waverEmbed: >
+  https://widgets.sendmoregetbeta.com/13413/document?videoURL=-r2zbi21aks&disallowSeek=false&hideHeader=false
 membershipEmbed: >
   https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314%2C76045%2C76043%2C76055&hideHeader=false
 singleEntryEmbed: >
   https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
 multiPassEmbed: >
   https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
-rollingMonthlyEmbed: >
+rollingMonthlyEmbed: ""
+googleAnalytics:
+  enabled: true
+  measurementId: G-S0652QWSCZ
