@@ -11,8 +11,7 @@ buttondown:
   username: boulderryn
 waverEmbed: >
   https://widgets.sendmoregetbeta.com/13413/document?videoURL=-r2zbi21aks&disallowSeek=false&hideHeader=false
-membershipEmbed: >
-  https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314%2C76045%2C76043%2C76055&hideHeader=false
+membershipEmbed: https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314%2C76043%2C76045&hideHeader=false&showGymLogo=false&prohibitAuth=true&noWaiverPrompt=true
 singleEntryEmbed: >
   https://widgets.sendmoregetbeta.com/13413/pass?pmtType=19&sortDescending=false&showOnly=75310%2C75311%2C75312%2C75314&hideHeader=false
 multiPassEmbed: >
